@@ -201,13 +201,29 @@
           <section id="step3-card" class="card hidden">
             <h3 data-i18n="s3Title">Paso 3: Emitir Dossier Técnico PDF &amp; Sello Verificado (129 €/año)</h3>
             <p id="step3-summary"></p>
-            <div class="btn-row" style="margin-top:12px;">
+
+            <div style="position:relative;margin-top:14px;border:1px solid var(--border);border-radius:12px;overflow:hidden;background:#f8fafc;padding:18px;">
+              <div style="filter:blur(4px);opacity:0.55;user-select:none;pointer-events:none;">
+                <div style="height:26px;background:#0b1f3a;border-radius:6px;margin-bottom:10px;"></div>
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px;">
+                  <div style="height:44px;background:#e2e8f0;border-radius:6px;"></div>
+                  <div style="height:44px;background:#d1fae5;border-radius:6px;"></div>
+                </div>
+                <div style="height:14px;background:#cbd5e1;border-radius:4px;margin-bottom:6px;width:90%;"></div>
+                <div style="height:14px;background:#cbd5e1;border-radius:4px;margin-bottom:6px;width:75%;"></div>
+                <div style="height:14px;background:#cbd5e1;border-radius:4px;width:82%;"></div>
+              </div>
+              <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;background:rgba(11,31,58,0.68);color:#ffffff;padding:16px;text-align:center;">
+                <span style="font-size:20px;margin-bottom:4px;">&#128274;</span>
+                <strong style="font-size:15px;" data-i18n="lockedTitle">Dossier Oficial listo para emitir — Desbloquear por 129 €/año</strong>
+                <span style="font-size:12px;color:#cbd5e1;margin-top:4px;" data-i18n="lockedSub">Incluye informe ejecutivo PDF de 2 páginas, código QR y sello público verificable.</span>
+              </div>
+            </div>
+
+            <div class="btn-row" style="margin-top:14px;">
               <button id="checkout-btn" type="button" class="btn btn-emerald" data-i18n="checkoutBtn">
-                Pagar 129 €/año con Stripe y Emitir Sello
+                Desbloquear Dossier PDF y Sello (129 €/año)
               </button>
-              <a id="draft-pdf-link" href="#" target="_blank" rel="noopener noreferrer" class="btn btn-outline" data-i18n="draftPdfBtn">
-                Previsualizar Dossier PDF (borrador)
-              </a>
             </div>
           </section>
         </div>

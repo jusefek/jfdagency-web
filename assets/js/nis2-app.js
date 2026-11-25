@@ -21,8 +21,9 @@
       countryLabel: "País UE",
       saveAssessBtn: "Guardar evaluación y continuar al Paso 3",
       s3Title: "Paso 3: Emitir Dossier Técnico PDF & Sello Verificado (129 €/año)",
-      checkoutBtn: "Pagar 129 €/año con Stripe y Emitir Sello",
-      draftPdfBtn: "Previsualizar Dossier PDF (borrador)",
+      lockedTitle: "Dossier Oficial listo para emitir — Desbloquear por 129 €/año",
+      lockedSub: "Incluye informe ejecutivo PDF de 2 páginas, código QR y sello público verificable.",
+      checkoutBtn: "Desbloquear Dossier PDF y Sello (129 €/año)",
     },
     en: {
       badge: "EU Directive 2022/2555 · B2B Suppliers",
@@ -43,8 +44,9 @@
       countryLabel: "EU Country",
       saveAssessBtn: "Save assessment & continue to Step 3",
       s3Title: "Step 3: Issue PDF Technical Dossier & Verified Seal (€129/yr)",
-      checkoutBtn: "Pay €129/yr with Stripe & Issue Seal",
-      draftPdfBtn: "Preview PDF Dossier (draft)",
+      lockedTitle: "Official Dossier ready to issue — Unlock for €129/year",
+      lockedSub: "Includes 2-page executive PDF report, QR code, and public verification seal.",
+      checkoutBtn: "Unlock PDF Dossier & Seal (€129/yr)",
     },
   };
 
@@ -249,8 +251,6 @@
         document.getElementById("step3-card").classList.remove("hidden");
         document.getElementById("step3-summary").textContent =
           `Código generado: ${currentSlug} · Puntuación técnica: ${data.assessment.technical_score}/100`;
-        document.getElementById("draft-pdf-link").href =
-          `${API_BASE}/api/dossier/${encodeURIComponent(currentSlug)}/pdf`;
         document.getElementById("step3-card").scrollIntoView({ behavior: "smooth" });
       } catch (err) {
         errBox.textContent = err.message;
