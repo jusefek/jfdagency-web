@@ -6,7 +6,7 @@
       badge: "Directiva (UE) 2022/2555 · Proveedores B2B",
       heroTitle: "NIS2 Vendor Pass: Auditoría Técnica y Dossier Verificado",
       heroDesc:
-        "Escanea gratis tu dominio (SPF, DKIM, DMARC, SSL y cabeceras), completa la matriz organizativa del Art. 21 NIS2 y obtén tu Dossier PDF + Sello Público Verificado por 129 €/año.",
+        "Verificación técnica externa automática (SPF, DKIM, DMARC, SSL y cabeceras) + autodeclaración estructurada NIS2 Art. 21 lista para entregar a departamentos de Compras (129 €/año).",
       step1Pill: "1. Escaneo Técnico Gratis",
       step2Pill: "2. Cuestionario NIS2 Art. 21",
       step3Pill: "3. Dossier PDF y Sello (129 €/año)",
@@ -29,7 +29,7 @@
       badge: "EU Directive 2022/2555 · B2B Suppliers",
       heroTitle: "NIS2 Vendor Pass: Technical Audit & Verified Dossier",
       heroDesc:
-        "Run a free live domain security scan (SPF, DKIM, DMARC, SSL & headers), complete the NIS2 Art. 21 organizational matrix, and unlock your PDF Dossier + Public Verification Seal for €129/year.",
+        "Automated external technical perimeter verification (SPF, DKIM, DMARC, SSL & headers) + structured NIS2 Art. 21 vendor self-declaration ready for Procurement teams (€129/year).",
       step1Pill: "1. Free Technical Scan",
       step2Pill: "2. NIS2 Art. 21 Questionnaire",
       step3Pill: "3. PDF Dossier & Seal (€129/yr)",
