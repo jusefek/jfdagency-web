@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NIS2 Vendor Pass — Auditoría Técnica y Dossier Art. 21 | JFD Agency</title>
+    <meta
+      name="description"
+      content="Escáner gratuito de dominio (SPF, DKIM, DMARC, SSL, cabeceras), cuestionario NIS2 Art. 21 y Dossier PDF + Sello Verificado para proveedores B2B."
+    />
+    <link rel="stylesheet" href="../assets/css/styles.css" />
+    <style>
+      .nis2-steps {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 12px;
+        margin-bottom: 24px;
+      }
+      .step-pill {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        padding: 12px 14px;
+        font-size: 13px;
+        font-weight: 600;
+        color: var(--muted);
+      }
+      .step-pill.active {
+        border-color: var(--emerald);
+        color: var(--navy);
+        background: #ecfdf5;
+      }
+      .scan-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+        gap: 10px;
+        margin-top: 14px;
+      }
+      .vec-card {
+        padding: 10px 12px;
+        border-radius: 8px;
+        border: 1px solid var(--border);
+        background: #f8fafc;
+        font-size: 12px;
+      }
+      .vec-ok { border-color: #10b981; background: #ecfdf5; color: #065f46; }
+      .vec-fail { border-color: #ef4444; background: #fef2f2; color: #991b1b; }
+      .score-ring {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 8px 14px;
+        border-radius: 999px;
+        background: var(--navy);
+        color: #ffffff;
+        font-weight: 700;
+        font-size: 15px;
+      }
+      .ctrl-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+        padding: 8px 10px;
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        margin-bottom: 8px;
+        cursor: pointer;
+        font-size: 13px;
+      }
+      .ctrl-item input {
+        width: auto;
+        margin-top: 3px;
+      }
+      .hidden { display: none !important; }
+    </style>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container nav-inner">
+        <a href="../index.html" class="brand-link">
+          <span class="brand-mark">JFD</span>
+          <span>JFD Agency</span>
+        </a>
+        <nav class="nav-links">
+          <a href="../index.html#soluciones">Soluciones</a>
+          <a href="../gpsr/index.html">Generador GPSR</a>
+          <a href="index.html">NIS2 Vendor Pass</a>
+          <select id="nis2-lang" aria-label="Language" style="padding:6px 10px;border-radius:8px;border:1px solid var(--border);font-weight:600;">
+            <option value="es" selected>ES</option>
+            <option value="en">EN</option>
+          </select>
+          <button type="button" class="btn btn-contact" data-open-contact="Proyecto a medida">Contactar</button>
+        </nav>
+      </div>
+    </header>
+
+    <section class="hero" style="padding: 46px 0 40px;">
+      <div class="container">
+        <span class="hero-badge" data-i18n="badge">Directiva (UE) 2022/2555 · Proveedores B2B</span>
+        <h1 data-i18n="heroTitle">NIS2 Vendor Pass: Auditoría Técnica y Dossier Verificado</h1>
+        <p data-i18n="heroDesc">
+          Escanea gratis tu dominio (SPF, DKIM, DMARC, SSL y cabeceras), completa la matriz
+          organizativa del Art. 21 NIS2 y obtén tu Dossier PDF + Sello Público Verificado por 129 €/año.
+        </p>
+      </div>
+    </section>
+
+    <main class="section">
+      <div class="container">
+        <!-- Public Verification View (shown when ?verify=<slug>) -->
+        <section id="verify-view" class="card hidden" style="margin-bottom: 24px;">
+          <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;">
+            <div>
+              <span id="verify-badge" class="pill pill-emerald">VERIFICADO</span>
+              <h2 id="verify-company" style="margin:8px 0 4px;color:var(--navy);"></h2>
+              <p id="verify-meta"></p>
+            </div>
+            <div class="score-ring">
+              <span id="verify-score">-- / 100</span>
+            </div>
+          </div>
+          <div id="verify-controls" style="margin-top:16px;"></div>
+          <div class="btn-row" style="margin-top:16px;">
+            <a id="verify-pdf-btn" href="#" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+              Descargar Dossier PDF
+            </a>
+            <a href="index.html" class="btn btn-outline">Hacer nueva auditoría</a>
+          </div>
+        </section>
+
+        <div id="wizard-container">
+          <div class="nis2-steps">
+            <div id="pill-1" class="step-pill active" data-i18n="step1Pill">1. Escaneo Técnico Gratis</div>
+            <div id="pill-2" class="step-pill" data-i18n="step2Pill">2. Cuestionario NIS2 Art. 21</div>
+            <div id="pill-3" class="step-pill" data-i18n="step3Pill">3. Dossier PDF y Sello (129 €/año)</div>
+          </div>
+
+          <!-- STEP 1 -->
+          <section class="card" style="margin-bottom: 24px;">
+            <h3 data-i18n="s1Title">Paso 1 (Gratis): Escaneo Técnico en Vivo de tu Dominio</h3>
+            <p data-i18n="s1Sub">Comprobamos registros DNS (SPF, DKIM, DMARC), certificado SSL/TLS, redirección HTTPS y cabeceras de seguridad.</p>
+            <form id="scan-form" style="display:flex;gap:10px;flex-wrap:wrap;margin-top:14px;">
+              <input
+                id="scan-domain"
+                type="text"
+                placeholder="ejemplo.com"
+                required
+                style="flex:1;min-width:220px;padding:10px 12px;border:1px solid var(--border);border-radius:8px;font-size:14px;"
+              />
+              <button id="scan-btn" type="submit" class="btn btn-emerald" data-i18n="scanBtn">
+                Analizar dominio gratis
+              </button>
+            </form>
+            <div id="scan-error" class="modal-status modal-status-err hidden" style="margin-top:12px;"></div>
+
+            <div id="scan-results" class="hidden" style="margin-top:18px;">
+              <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;">
+                <strong id="scan-domain-title" style="font-size:16px;color:var(--navy);"></strong>
+                <span id="scan-score-badge" class="score-ring">0 / 100</span>
+              </div>
+              <div id="scan-vectors" class="scan-grid"></div>
+              <ul id="scan-recs" style="margin-top:14px;padding-left:18px;font-size:13px;color:var(--muted);"></ul>
+            </div>
+          </section>
+
+          <!-- STEP 2 -->
+          <section id="step2-card" class="card" style="margin-bottom: 24px;">
+            <h3 data-i18n="s2Title">Paso 2: Matriz Organizativa NIS2 Art. 21 (10 Controles Esenciales)</h3>
+            <p data-i18n="s2Sub">Completa los datos de tu empresa y marca las medidas implantadas para generar el Dossier Técnico.</p>
+
+            <form id="assessment-form" style="margin-top:14px;">
+              <div class="grid-2">
+                <div class="form-group">
+                  <label for="comp-name" data-i18n="compLabel">Razón social / Empresa</label>
+                  <input id="comp-name" type="text" required placeholder="Acme Tech S.L." />
+                </div>
+                <div class="form-group">
+                  <label for="comp-email" data-i18n="emailLabel">Email de contacto</label>
+                  <input id="comp-email" type="email" required placeholder="seguridad@acme.com" />
+                </div>
+                <div class="form-group">
+                  <label for="comp-sector" data-i18n="sectorLabel">Sector</label>
+                  <input id="comp-sector" type="text" placeholder="SaaS / Logística / Industria" />
+                </div>
+                <div class="form-group">
+                  <label for="comp-country" data-i18n="countryLabel">País UE</label>
+                  <input id="comp-country" type="text" value="ES" />
+                </div>
+              </div>
+
+              <div id="controls-list" style="margin-top:10px;"></div>
+
+              <div id="assess-error" class="modal-status modal-status-err hidden" style="margin-top:10px;"></div>
+              <button id="save-assess-btn" type="submit" class="btn btn-primary" style="margin-top:10px;" data-i18n="saveAssessBtn">
+                Guardar evaluación y continuar al Paso 3
+              </button>
+            </form>
+          </section>
+
+          <!-- STEP 3 -->
+          <section id="step3-card" class="card hidden">
+            <h3 data-i18n="s3Title">Paso 3: Emitir Dossier Técnico PDF &amp; Sello Verificado (129 €/año)</h3>
+            <p id="step3-summary"></p>
+            <div class="btn-row" style="margin-top:12px;">
+              <button id="checkout-btn" type="button" class="btn btn-emerald" data-i18n="checkoutBtn">
+                Pagar 129 €/año con Stripe y Emitir Sello
+              </button>
+              <a id="draft-pdf-link" href="#" target="_blank" rel="noopener noreferrer" class="btn btn-outline" data-i18n="draftPdfBtn">
+                Previsualizar Dossier PDF (borrador)
+              </a>
+            </div>
+          </section>
+        </div>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <span>&copy; 2026 JFD Agency</span>
+        <div class="footer-links">
+          <a href="../index.html">Inicio</a>
+          <a href="../privacy/index.html">Política de Privacidad</a>
+          <a href="../terms/index.html">Términos de Uso</a>
+          <a href="#" data-open-contact="Proyecto a medida">soporte@tryjfdagency.com</a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="../assets/js/nis2-app.js"></script>
+    <script src="../assets/js/contact-modal.js"></script>
+  </body>
+</html>
