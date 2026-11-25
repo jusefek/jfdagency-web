@@ -27,6 +27,8 @@
       phDomain: "ejemplo.com",
       phEmail: "seguridad@acme.com",
       phSector: "SaaS / Logística / Industria",
+      downloadPdfBtn: "Descargar Dossier PDF",
+      newAuditBtn: "Hacer nueva auditoría",
     },
     en: {
       badge: "EU Directive 2022/2555 · B2B Suppliers",
@@ -53,6 +55,8 @@
       phDomain: "example.com",
       phEmail: "security@acme.com",
       phSector: "SaaS / Logistics / Manufacturing",
+      downloadPdfBtn: "Download PDF Dossier",
+      newAuditBtn: "Run new audit",
     },
   };
 
@@ -169,7 +173,13 @@
     document.getElementById("verify-company").textContent = `${vendor.company_name} (${vendor.domain})`;
     document.getElementById("verify-meta").textContent = `Código: ${vendor.slug} · ${vendor.sector || "B2B"} (${vendor.country}) · ${new Date(vendor.verified_at || vendor.created_at).toLocaleDateString()}`;
     document.getElementById("verify-score").textContent = `${vendor.technical_score} / 100`;
-    document.getElementById("verify-pdf-btn").href = `${API_BASE}/api/dossier/${encodeURIComponent(vendor.slug)}/pdf`;
+    document.getElementById("verify-pdf-btn").href = `${API_BASE}/api/dossier/${encodeURIComponent(vendor.slug)}/pdf?lang=${encodeURIComponent(currentLang)}`;
+    const altLang = currentLang === "en" ? "es" : "en";
+    const altLink = document.getElementById("verify-pdf-alt");
+    if (altLink) {
+      altLink.href = `${API_BASE}/api/dossier/${encodeURIComponent(vendor.slug)}/pdf?lang=${altLang}`;
+      altLink.textContent = altLang === "en" ? "Download in EN" : "Descargar en ES";
+    }
 
     const ctrlDiv = document.getElementById("verify-controls");
     ctrlDiv.innerHTML = "";
@@ -252,6 +262,7 @@
             country: document.getElementById("comp-country").value.trim(),
             scanResults: lastScan,
             questionnaire,
+            lang: currentLang,
           }),
         });
         const data = await resp.json();
