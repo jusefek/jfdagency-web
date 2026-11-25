@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Generador Gratuito de Bloque Legal GPSR UE (Reglamento 2023/988) | TryJFD Agency</title>
+    <meta
+      name="description"
+      content="Crea gratis en 1 minuto el bloque HTML de Fabricante, Persona Responsable en la UE, advertencias de seguridad y marcado CE para cumplir el Reglamento (UE) 2023/988."
+    />
+    <link rel="stylesheet" href="../assets/css/styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container nav-inner">
+        <a href="../index.html" class="brand-link">
+          <span class="brand-mark">JFD</span>
+          <span>TryJFD Agency</span>
+        </a>
+        <nav class="nav-links">
+          <a href="../index.html#soluciones">Soluciones SaaS</a>
+          <a href="index.html">Generador GPSR</a>
+          <a href="../privacy/index.html">Privacidad</a>
+          <a href="mailto:soporte@tryjfdagency.com" class="btn btn-primary">Contactar</a>
+        </nav>
+      </div>
+    </header>
+
+    <section class="hero" style="padding: 44px 0 38px;">
+      <div class="container">
+        <span class="hero-badge">Herramienta Gratuita · Reglamento (UE) 2023/988</span>
+        <h1>Generador Gratuito de Bloque Legal GPSR UE</h1>
+        <p>
+          Rellena los datos de Fabricante y Persona Responsable en la UE, elige el idioma
+          (<strong>ES / EN / DE / FR</strong>) y copia el bloque HTML listo para pegar en cualquier
+          ficha de producto.
+        </p>
+      </div>
+    </section>
+
+    <main class="section">
+      <div class="container">
+        <div class="gen-grid">
+          <section class="card">
+            <h3>1. Datos de cumplimiento GPSR</h3>
+            <form id="gpsr-form">
+              <div class="form-group">
+                <label for="lang">Idioma del bloque</label>
+                <select id="lang">
+                  <option value="es" selected>Español (ES)</option>
+                  <option value="en">English (EN)</option>
+                  <option value="de">Deutsch (DE)</option>
+                  <option value="fr">Français (FR)</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="mfgName">Nombre o razón social del fabricante</label>
+                <input id="mfgName" type="text" value="Nordic Sound GmbH" />
+              </div>
+
+              <div class="form-group">
+                <label for="mfgAddr">Dirección postal del fabricante</label>
+                <textarea id="mfgAddr" rows="2">Hafenstraße 42, 20457 Hamburg, Germany</textarea>
+              </div>
+
+              <div class="form-group">
+                <label for="mfgEmail">Email o URL de contacto del fabricante</label>
+                <input id="mfgEmail" type="text" value="compliance@nordicsound.de" />
+              </div>
+
+              <div class="form-group">
+                <label for="euName">Persona Responsable en la UE (Art. 16 GPSR)</label>
+                <input id="euName" type="text" value="EU Compliance Representative GmbH" />
+              </div>
+
+              <div class="form-group">
+                <label for="euAddr">Dirección postal en la UE</label>
+                <textarea id="euAddr" rows="2">Friedrichstraße 123, 10117 Berlin, Germany</textarea>
+              </div>
+
+              <div class="form-group">
+                <label for="euEmail">Email de la Persona Responsable en la UE</label>
+                <input id="euEmail" type="email" value="gpsr@eucompliance.de" />
+              </div>
+
+              <div class="form-group">
+                <label for="safety">Advertencias de seguridad e instrucciones</label>
+                <textarea id="safety" rows="2">Mantener alejado de fuentes de calor y humedad. No apto para menores de 3 años.</textarea>
+              </div>
+
+              <div class="form-group">
+                <label style="display:flex;align-items:center;gap:8px;cursor:pointer;">
+                  <input id="ceMark" type="checkbox" checked style="width:auto;" />
+                  <span>Incluir insignia de Conformidad CE</span>
+                </label>
+              </div>
+            </form>
+          </section>
+
+          <section style="display:flex;flex-direction:column;gap:20px;">
+            <div class="card">
+              <h3>2. Vista previa en ficha de producto</h3>
+              <div id="preview-container"></div>
+            </div>
+
+            <div class="card">
+              <div class="card-header" style="display:flex;justify-content:space-between;align-items:center;gap:12px;">
+                <h3 style="margin:0;">3. Código HTML listo para copiar</h3>
+                <button id="copy-html-btn" type="button" class="btn btn-emerald">
+                  Copiar HTML en 1 clic
+                </button>
+              </div>
+              <textarea id="html-output" class="code-output" readonly></textarea>
+            </div>
+
+            <div class="agency-banner" style="padding:22px;">
+              <div>
+                <h3 style="margin:0 0 6px;color:#ffffff;">¿Tienes decenas o miles de productos?</h3>
+                <p style="font-size:13px;">
+                  Automatiza el bloque GPSR en todo tu catálogo por proveedor o marca con
+                  <strong>SafeGuard GPSR EU</strong> para Shopify y WooCommerce.
+                </p>
+              </div>
+              <div class="btn-row">
+                <a href="https://apps.shopify.com/safeguard-gpsr-eu" target="_blank" rel="noopener noreferrer" class="btn btn-emerald">
+                  Shopify App
+                </a>
+                <a href="../index.html#safeguard-gpsr" class="btn btn-outline">
+                  Plugin WooCommerce
+                </a>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <span>&copy; 2026 TryJFD Agency</span>
+        <div class="footer-links">
+          <a href="../index.html">Inicio</a>
+          <a href="../privacy/index.html">Política de Privacidad</a>
+          <a href="../terms/index.html">Términos de Uso</a>
+          <a href="mailto:soporte@tryjfdagency.com">soporte@tryjfdagency.com</a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="../assets/js/gpsr-generator.js"></script>
+  </body>
+</html>
