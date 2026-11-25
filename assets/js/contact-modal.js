@@ -2,9 +2,78 @@
   const SUPPORT_EMAIL = "soporte@tryjfdagency.com";
   const FORMSUBMIT_URL = `https://formsubmit.co/ajax/${SUPPORT_EMAIL}`;
 
+  const MODAL_I18N = {
+    es: {
+      title: "Contactar con JFD Agency",
+      sub: "Respuesta habitual en menos de 24 horas laborables.",
+      nameLabel: "Nombre",
+      namePh: "Tu nombre o empresa",
+      emailLabel: "Email",
+      emailPh: "tu@empresa.com",
+      typeLabel: "Tipo de consulta",
+      opt1: "App Shopify",
+      opt2: "Plugin WooCommerce",
+      opt3: "Proyecto a medida",
+      msgLabel: "Mensaje",
+      msgPh: "Cuéntanos brevemente qué necesitas...",
+      submit: "Enviar mensaje",
+      sending: "Enviando...",
+      copy: "Copiar email",
+      copied: "¡Copiado!",
+      ok: "¡Mensaje enviado! Te responderemos muy pronto.",
+      err: "No se pudo enviar automáticamente. Usa el botón 'Copiar email' para escribirnos directo.",
+    },
+    en: {
+      title: "Contact JFD Agency",
+      sub: "Typical response within 24 business hours.",
+      nameLabel: "Name",
+      namePh: "Your name or company",
+      emailLabel: "Email",
+      emailPh: "you@company.com",
+      typeLabel: "Inquiry type",
+      opt1: "Shopify App",
+      opt2: "WooCommerce Plugin",
+      opt3: "Custom Project",
+      msgLabel: "Message",
+      msgPh: "Tell us briefly what you need...",
+      submit: "Send message",
+      sending: "Sending...",
+      copy: "Copy email",
+      copied: "Copied!",
+      ok: "Message sent! We will get back to you shortly.",
+      err: "Could not send automatically. Use the 'Copy email' button to email us directly.",
+    },
+  };
+
+  function getLang() {
+    return window.JFD_LANG === "en" ? "en" : "es";
+  }
+
+  function applyModalTexts(overlay) {
+    const t = MODAL_I18N[getLang()];
+    overlay.querySelector("#jfd-modal-title").textContent = t.title;
+    overlay.querySelector(".modal-sub").textContent = t.sub;
+    overlay.querySelector("label[for='jfd-name']").textContent = t.nameLabel;
+    overlay.querySelector("#jfd-name").placeholder = t.namePh;
+    overlay.querySelector("label[for='jfd-email']").textContent = t.emailLabel;
+    overlay.querySelector("#jfd-email").placeholder = t.emailPh;
+    overlay.querySelector("label[for='jfd-type']").textContent = t.typeLabel;
+    const opts = overlay.querySelector("#jfd-type").options;
+    opts[0].textContent = t.opt1;
+    opts[1].textContent = t.opt2;
+    opts[2].textContent = t.opt3;
+    overlay.querySelector("label[for='jfd-message']").textContent = t.msgLabel;
+    overlay.querySelector("#jfd-message").placeholder = t.msgPh;
+    overlay.querySelector("#jfd-submit-btn").textContent = t.submit;
+    overlay.querySelector("#jfd-copy-email").textContent = t.copy;
+  }
+
   function ensureModal() {
     let overlay = document.getElementById("jfd-contact-modal");
-    if (overlay) return overlay;
+    if (overlay) {
+      applyModalTexts(overlay);
+      return overlay;
+    }
 
     overlay = document.createElement("div");
     overlay.id = "jfd-contact-modal";
@@ -17,41 +86,41 @@
       <div class="modal-card">
         <div class="modal-header">
           <div>
-            <h3 id="jfd-modal-title">Contactar con JFD Agency</h3>
-            <p class="modal-sub">Respuesta habitual en menos de 24 horas laborables.</p>
+            <h3 id="jfd-modal-title"></h3>
+            <p class="modal-sub"></p>
           </div>
-          <button type="button" class="modal-close" aria-label="Cerrar">&times;</button>
+          <button type="button" class="modal-close" aria-label="Close">&times;</button>
         </div>
 
         <form id="jfd-contact-form">
           <div class="form-group">
-            <label for="jfd-name">Nombre</label>
-            <input id="jfd-name" name="name" type="text" required placeholder="Tu nombre o empresa" />
+            <label for="jfd-name"></label>
+            <input id="jfd-name" name="name" type="text" required />
           </div>
           <div class="form-group">
-            <label for="jfd-email">Email</label>
-            <input id="jfd-email" name="email" type="email" required placeholder="tu@empresa.com" />
+            <label for="jfd-email"></label>
+            <input id="jfd-email" name="email" type="email" required />
           </div>
           <div class="form-group">
-            <label for="jfd-type">Tipo de consulta</label>
+            <label for="jfd-type"></label>
             <select id="jfd-type" name="type">
-              <option value="App Shopify">App Shopify</option>
-              <option value="Plugin WooCommerce">Plugin WooCommerce</option>
-              <option value="Proyecto a medida" selected>Proyecto a medida</option>
+              <option value="App Shopify"></option>
+              <option value="Plugin WooCommerce"></option>
+              <option value="Proyecto a medida" selected></option>
             </select>
           </div>
           <div class="form-group">
-            <label for="jfd-message">Mensaje</label>
-            <textarea id="jfd-message" name="message" rows="3" required placeholder="Cuéntanos brevemente qué necesitas..."></textarea>
+            <label for="jfd-message"></label>
+            <textarea id="jfd-message" name="message" rows="3" required></textarea>
           </div>
 
           <div id="jfd-form-status" class="modal-status hidden"></div>
 
           <div class="modal-actions">
-            <button type="submit" id="jfd-submit-btn" class="btn btn-contact">Enviar mensaje</button>
+            <button type="submit" id="jfd-submit-btn" class="btn btn-contact"></button>
             <div class="copy-email-wrap">
               <span class="email-pill">${SUPPORT_EMAIL}</span>
-              <button type="button" id="jfd-copy-email" class="btn btn-outline btn-sm">Copiar email</button>
+              <button type="button" id="jfd-copy-email" class="btn btn-outline btn-sm"></button>
             </div>
           </div>
         </form>
@@ -59,6 +128,7 @@
     `;
 
     document.body.appendChild(overlay);
+    applyModalTexts(overlay);
 
     const closeBtn = overlay.querySelector(".modal-close");
     closeBtn.addEventListener("click", () => overlay.classList.add("hidden"));
@@ -73,11 +143,11 @@
 
     const copyBtn = overlay.querySelector("#jfd-copy-email");
     copyBtn.addEventListener("click", async () => {
+      const t = MODAL_I18N[getLang()];
       await navigator.clipboard.writeText(SUPPORT_EMAIL);
-      const prev = copyBtn.textContent;
-      copyBtn.textContent = "¡Copiado!";
+      copyBtn.textContent = t.copied;
       setTimeout(() => {
-        copyBtn.textContent = prev;
+        copyBtn.textContent = MODAL_I18N[getLang()].copy;
       }, 1800);
     });
 
@@ -87,8 +157,9 @@
 
     form.addEventListener("submit", async (e) => {
       e.preventDefault();
+      const t = MODAL_I18N[getLang()];
       submitBtn.disabled = true;
-      submitBtn.textContent = "Enviando...";
+      submitBtn.textContent = t.sending;
       statusBox.className = "modal-status hidden";
 
       try {
@@ -108,16 +179,15 @@
         });
 
         if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
-        statusBox.textContent = "¡Mensaje enviado! Te responderemos muy pronto.";
+        statusBox.textContent = t.ok;
         statusBox.className = "modal-status modal-status-ok";
         form.reset();
       } catch {
-        statusBox.textContent =
-          "No se pudo enviar automáticamente. Usa el botón 'Copiar email' para escribirnos directo.";
+        statusBox.textContent = t.err;
         statusBox.className = "modal-status modal-status-err";
       } finally {
         submitBtn.disabled = false;
-        submitBtn.textContent = "Enviar mensaje";
+        submitBtn.textContent = MODAL_I18N[getLang()].submit;
       }
     });
 

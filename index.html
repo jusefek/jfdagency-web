@@ -3,10 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>JFD Agency — Estudio SaaS E-commerce, Cumplimiento GPSR UE y Shopify/WooCommerce</title>
+    <title>JFD Agency — Estudio SaaS E-commerce, Cumplimiento GPSR UE, NIS2 y Shopify/WooCommerce</title>
     <meta
       name="description"
-      content="Soluciones B2B para Shopify y WooCommerce: SafeGuard GPSR EU, FeedGuard EU, ContaSync ES, extensiones Chrome gratuitas y desarrollo a medida."
+      content="Soluciones B2B para Shopify y WooCommerce: NIS2 Vendor Pass, SafeGuard GPSR EU, FeedGuard EU, ContaSync ES, extensiones Chrome gratuitas y desarrollo a medida."
     />
     <link rel="stylesheet" href="assets/css/styles.css" />
   </head>
@@ -18,28 +18,32 @@
           <span>JFD Agency</span>
         </a>
         <nav class="nav-links">
-          <a href="#soluciones">Soluciones SaaS</a>
-          <a href="#extensiones">Extensiones Chrome</a>
-          <a href="nis2/index.html">NIS2 Vendor Pass</a>
-          <a href="gpsr/index.html">Generador GPSR Gratis</a>
-          <a href="#agencia">Servicios Agencia</a>
-          <button type="button" class="btn btn-contact" data-open-contact="Proyecto a medida">Contactar</button>
+          <a href="#soluciones" data-i18n="navSolutions">Soluciones SaaS</a>
+          <a href="#extensiones" data-i18n="navExt">Extensiones Chrome</a>
+          <a href="nis2/index.html" data-i18n="navNis2">NIS2 Vendor Pass</a>
+          <a href="gpsr/index.html" data-i18n="navGpsr">Generador GPSR Gratis</a>
+          <a href="#agencia" data-i18n="navAgency">Servicios Agencia</a>
+          <select id="home-lang" aria-label="Language" style="padding:6px 10px;border-radius:8px;border:1px solid var(--border);font-weight:600;">
+            <option value="es" selected>ES</option>
+            <option value="en">EN</option>
+          </select>
+          <button type="button" class="btn btn-contact" data-open-contact="Proyecto a medida" data-i18n="navContact">Contactar</button>
         </nav>
       </div>
     </header>
 
     <section class="hero">
       <div class="container">
-        <span class="hero-badge">Estudio SaaS &amp; Agencia E-commerce</span>
-        <h1>Software de cumplimiento europeo y automatización para Shopify y WooCommerce</h1>
-        <p>
+        <span class="hero-badge" data-i18n="heroBadge">Estudio SaaS &amp; Agencia E-commerce</span>
+        <h1 data-i18n="heroTitle">Software de cumplimiento europeo y automatización para Shopify y WooCommerce</h1>
+        <p data-i18n="heroDesc">
           Construimos apps ligeras, auditores y plugins para que comercios y agencias cumplan el
-          Reglamento (UE) 2023/988 (GPSR), optimicen sus feeds de Google/Meta y automaticen la
-          contabilidad española sin fricción.
+          Reglamento (UE) 2023/988 (GPSR), la Directiva NIS2, optimicen sus feeds de Google/Meta y
+          automaticen la contabilidad española.
         </p>
         <div class="hero-actions">
-          <a href="#safeguard-gpsr" class="btn btn-emerald">Ver SafeGuard GPSR EU</a>
-          <a href="gpsr/index.html" class="btn btn-outline">Usar Generador GPSR Gratis</a>
+          <a href="#safeguard-gpsr" class="btn btn-emerald" data-i18n="heroBtn1">Ver SafeGuard GPSR EU</a>
+          <a href="gpsr/index.html" class="btn btn-outline" data-i18n="heroBtn2">Usar Generador GPSR Gratis</a>
         </div>
       </div>
     </section>
@@ -48,27 +52,26 @@
       <section id="soluciones" class="section">
         <div class="container">
           <div class="section-header">
-            <h2>Catálogo de Soluciones E-commerce</h2>
-            <p>Apps nativas para Shopify App Store y plugins oficiales para WooCommerce.</p>
+            <h2 data-i18n="catTitle">Catálogo de Soluciones E-commerce y Compliance</h2>
+            <p data-i18n="catDesc">Apps nativas para Shopify App Store, plugins para WooCommerce y herramientas B2B.</p>
           </div>
 
           <div class="grid-2">
             <article id="nis2-vendor-pass" class="card card-featured">
               <div>
-                <span class="pill pill-emerald">Nuevo · Directiva (UE) 2022/2555 (NIS2)</span>
+                <span class="pill pill-emerald" data-i18n="nis2Pill">Nuevo · Directiva (UE) 2022/2555 (NIS2)</span>
                 <h3>NIS2 Vendor Pass</h3>
-                <p>
+                <p data-i18n="nis2Desc">
                   Escáner técnico gratuito en vivo para dominios B2B (SPF, DKIM, DMARC, SSL/TLS,
-                  redirección HTTPS y cabeceras de seguridad) + cuestionario NIS2 Art. 21 con
-                  emisión de <strong>Dossier Técnico PDF</strong> y <strong>Sello Público Verificado</strong>
-                  (129 €/año).
+                  redirección HTTPS y cabeceras) + autodeclaración NIS2 Art. 21 con emisión de
+                  Dossier Técnico PDF y Sello Verificado (129 €/año).
                 </p>
               </div>
               <div class="btn-row">
-                <a href="nis2/index.html" class="btn btn-emerald">
+                <a href="nis2/index.html" class="btn btn-emerald" data-i18n="nis2Btn1">
                   Lanzar Escáner NIS2 Gratis
                 </a>
-                <a href="nis2/index.html#step2-card" class="btn btn-outline">
+                <a href="nis2/index.html#step2-card" class="btn btn-outline" data-i18n="nis2Btn2">
                   Generar Dossier Art. 21
                 </a>
               </div>
@@ -76,20 +79,18 @@
 
             <article id="safeguard-gpsr" class="card card-featured">
               <div>
-                <span class="pill pill-emerald">Destacado · Reglamento (UE) 2023/988</span>
+                <span class="pill pill-emerald" data-i18n="gpsrPill">Destacado · Reglamento (UE) 2023/988</span>
                 <h3>SafeGuard GPSR EU</h3>
-                <p>
+                <p data-i18n="gpsrDesc">
                   Gestiona en 1 clic los datos de Fabricante, Persona Responsable en la UE (Art. 16),
                   advertencias de seguridad y marcado CE por proveedor, marca o categoría, con bloque
-                  visual automático en <strong>ES, EN, DE y FR</strong>.
+                  visual automático en ES, EN, DE y FR.
                 </p>
 
-                <div class="pro-box">
-                  <strong>Versión WooCommerce:</strong> Gratis hasta 25 productos por lote.
-                  <strong>Licencia Pro Anual — 39 €/año</strong> (productos y actualizaciones masivas ilimitadas).
-                  Tras completar el pago recibirás tu clave con formato
-                  <code>SG-GPSR-PRO-XXXX-XXXX</code> para activarla directamente en
-                  <em>WooCommerce → SafeGuard GPSR EU</em>.
+                <div class="pro-box" data-i18n="gpsrProBox">
+                  Versión WooCommerce: Gratis hasta 25 productos por lote. Licencia Pro Anual — 39 €/año
+                  (productos y actualizaciones masivas ilimitadas). Tras el pago recibirás tu clave
+                  SG-GPSR-PRO-XXXX-XXXX para activarla en WooCommerce → SafeGuard GPSR EU.
                 </div>
               </div>
 
@@ -99,6 +100,7 @@
                   target="_blank"
                   rel="noopener noreferrer"
                   class="btn btn-primary"
+                  data-i18n="gpsrBtn1"
                 >
                   Instalar en Shopify (App Store)
                 </a>
@@ -106,6 +108,7 @@
                   href="downloads/safeguard-gpsr-eu.zip"
                   download
                   class="btn btn-emerald"
+                  data-i18n="gpsrBtn2"
                 >
                   Descargar Plugin WooCommerce Gratis (.zip)
                 </a>
@@ -115,6 +118,7 @@
                   target="_blank"
                   rel="noopener noreferrer"
                   class="btn btn-outline"
+                  data-i18n="gpsrBtn3"
                 >
                   Adquirir Licencia Pro Anual (39 €/año)
                 </a>
@@ -125,7 +129,7 @@
               <div>
                 <span class="pill">Shopify App</span>
                 <h3>FeedGuard EU</h3>
-                <p>
+                <p data-i18n="fgDesc">
                   Auditoría y sincronización inteligente de catálogos Shopify hacia Google Merchant
                   Center y Meta Catalog: corrige GTIN, marca, condición y atributos faltantes en lote.
                 </p>
@@ -136,6 +140,7 @@
                   target="_blank"
                   rel="noopener noreferrer"
                   class="btn btn-primary"
+                  data-i18n="fgBtn"
                 >
                   Ver en Shopify App Store
                 </a>
@@ -146,7 +151,7 @@
               <div>
                 <span class="pill">Shopify App</span>
                 <h3>ContaSync ES</h3>
-                <p>
+                <p data-i18n="csDesc">
                   Exportación contable adaptada a España (Holded, A3CON / Sage y Excel gestoría) con
                   desglose automático por tipos de IVA (21 %, 10 %, 4 %), Canarias IGIC y UE B2B para
                   el Modelo 303.
@@ -158,6 +163,7 @@
                   target="_blank"
                   rel="noopener noreferrer"
                   class="btn btn-primary"
+                  data-i18n="csBtn"
                 >
                   Ver en Shopify App Store
                 </a>
@@ -170,37 +176,37 @@
       <section id="extensiones" class="section" style="padding-top: 8px;">
         <div class="container">
           <div class="section-header">
-            <h2>Extensiones Chrome Gratuitas</h2>
-            <p>Herramientas ligeras de auditoría instantánea sin coste de servidor ni permisos invasivos.</p>
+            <h2 data-i18n="extTitle">Extensiones Chrome Gratuitas</h2>
+            <p data-i18n="extDesc">Herramientas ligeras de auditoría instantánea sin coste de servidor ni permisos invasivos.</p>
           </div>
 
           <div class="grid-2">
             <article class="card">
               <div>
-                <span class="pill pill-emerald">Chrome Manifest V3 · Gratis</span>
+                <span class="pill pill-emerald" data-i18n="ext1Pill">Chrome Manifest V3 · Gratis</span>
                 <h3>EU Store &amp; Pixel Auditor</h3>
-                <p>
+                <p data-i18n="ext1Desc">
                   Detecta en 1 clic la plataforma (Shopify, WooCommerce, PrestaShop, Magento, Wix),
                   píxeles activos (Meta, GA4/GTM, TikTok, Pinterest, Clarity) y semáforo de
                   cumplimiento GPSR UE + enlaces legales.
                 </p>
               </div>
               <div class="btn-row">
-                <a href="gpsr/index.html" class="btn btn-outline">Generar bloque GPSR gratis</a>
+                <a href="gpsr/index.html" class="btn btn-outline" data-i18n="ext1Btn">Generar bloque GPSR gratis</a>
               </div>
             </article>
 
             <article class="card">
               <div>
-                <span class="pill">Chrome Extension · Gratis</span>
+                <span class="pill" data-i18n="ext2Pill">Chrome Extension · Gratis</span>
                 <h3>Theme &amp; App Detector for Shopify</h3>
-                <p>
+                <p data-i18n="ext2Desc">
                   Identifica al instante el tema activo, ID de plantilla y scripts de apps instaladas
                   en cualquier tienda Shopify para agencias y consultores CRO.
                 </p>
               </div>
               <div class="btn-row">
-                <button type="button" class="btn btn-outline" data-open-contact="App Shopify">
+                <button type="button" class="btn btn-outline" data-open-contact="App Shopify" data-i18n="ext2Btn">
                   Solicitar acceso anticipado
                 </button>
               </div>
@@ -213,13 +219,13 @@
         <div class="container">
           <div class="agency-banner">
             <div>
-              <h2>Servicios de Agencia Shopify &amp; WooCommerce</h2>
-              <p>
+              <h2 data-i18n="agTitle">Servicios de Agencia Shopify &amp; WooCommerce</h2>
+              <p data-i18n="agDesc">
                 Desarrollo de apps privadas a medida, migraciones sin pérdida de SEO, automatización
                 ERP/facturación y adecuación técnica integral a normativas europeas.
               </p>
             </div>
-            <button type="button" class="btn btn-emerald" data-open-contact="Proyecto a medida">
+            <button type="button" class="btn btn-emerald" data-open-contact="Proyecto a medida" data-i18n="agBtn">
               Solicitar presupuesto
             </button>
           </div>
@@ -229,15 +235,18 @@
 
     <footer class="site-footer">
       <div class="container footer-inner">
-        <span>&copy; 2026 JFD Agency · Todos los derechos reservados.</span>
+        <span data-i18n="footCopy">&copy; 2026 JFD Agency · Todos los derechos reservados.</span>
         <div class="footer-links">
-          <a href="gpsr/index.html">Generador GPSR UE</a>
-          <a href="privacy/index.html">Política de Privacidad</a>
-          <a href="terms/index.html">Términos de Uso</a>
+          <a href="nis2/index.html" data-i18n="navNis2">NIS2 Vendor Pass</a>
+          <a href="gpsr/index.html" data-i18n="navGpsr">Generador GPSR UE</a>
+          <a href="privacy/index.html" data-i18n="footPrivacy">Política de Privacidad</a>
+          <a href="terms/index.html" data-i18n="footTerms">Términos de Uso</a>
           <a href="#" data-open-contact="Proyecto a medida">soporte@tryjfdagency.com</a>
         </div>
       </div>
     </footer>
+
+    <script src="assets/js/home-i18n.js"></script>
     <script src="assets/js/contact-modal.js"></script>
   </body>
 </html>

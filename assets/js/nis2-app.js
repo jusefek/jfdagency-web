@@ -24,6 +24,9 @@
       lockedTitle: "Dossier Oficial listo para emitir — Desbloquear por 129 €/año",
       lockedSub: "Incluye informe ejecutivo PDF de 2 páginas, código QR y sello público verificable.",
       checkoutBtn: "Desbloquear Dossier PDF y Sello (129 €/año)",
+      phDomain: "ejemplo.com",
+      phEmail: "seguridad@acme.com",
+      phSector: "SaaS / Logística / Industria",
     },
     en: {
       badge: "EU Directive 2022/2555 · B2B Suppliers",
@@ -47,6 +50,9 @@
       lockedTitle: "Official Dossier ready to issue — Unlock for €129/year",
       lockedSub: "Includes 2-page executive PDF report, QR code, and public verification seal.",
       checkoutBtn: "Unlock PDF Dossier & Seal (€129/yr)",
+      phDomain: "example.com",
+      phEmail: "security@acme.com",
+      phSector: "SaaS / Logistics / Manufacturing",
     },
   };
 
@@ -91,10 +97,15 @@
 
   function applyLang(lang) {
     currentLang = lang === "en" ? "en" : "es";
+    window.JFD_LANG = currentLang;
     const dict = I18N[currentLang];
     for (const el of document.querySelectorAll("[data-i18n]")) {
       const key = el.getAttribute("data-i18n");
       if (dict[key]) el.textContent = dict[key];
+    }
+    for (const el of document.querySelectorAll("[data-i18n-ph]")) {
+      const key = el.getAttribute("data-i18n-ph");
+      if (dict[key]) el.setAttribute("placeholder", dict[key]);
     }
     renderControls();
   }
