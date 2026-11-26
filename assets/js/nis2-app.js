@@ -105,17 +105,21 @@
     document.getElementById("pill-2").classList.add("active");
   }
 
-  async function loadVerificationView(slug, sessionId) {
+  async function loadVerificationView(slug, sessionId, isDemo = false) {
     const view = document.getElementById("verify-view");
     const wizard = document.getElementById("wizard-container");
     const errBox = document.getElementById("verify-error");
+    if (errBox) errBox.classList.add("hidden");
 
     try {
-      if (sessionId) {
+      if (sessionId && !isDemo) {
         await fetch(`${API_BASE}/api/verify-payment?slug=${encodeURIComponent(slug)}&session_id=${encodeURIComponent(sessionId)}`);
       }
 
-      const resp = await fetch(`${API_BASE}/api/verify/${encodeURIComponent(slug)}`);
+      const verifyEndpoint = isDemo
+        ? `${API_BASE}/api/demo/verify?lang=${encodeURIComponent(currentLang)}`
+        : `${API_BASE}/api/verify/${encodeURIComponent(slug)}`;
+      const resp = await fetch(verifyEndpoint);
       const data = await resp.json().catch(() => ({}));
       if (!resp.ok || !data.ok || !data.verified) {
         throw new Error(data.error || t.verifyFailed);
@@ -126,16 +130,21 @@
       view.classList.remove("hidden");
 
       const badge = document.getElementById("verify-badge");
-      badge.textContent = vendor.status === "verified" ? t.verifiedBadge : t.pendingBadge;
+      badge.textContent = isDemo
+        ? currentLang === "en" ? "DEMO SAMPLE" : "EJEMPLO DEMO"
+        : vendor.status === "verified" ? t.verifiedBadge : t.pendingBadge;
       document.getElementById("verify-company").textContent = `${vendor.company_name} (${vendor.domain})`;
       document.getElementById("verify-meta").textContent = `${vendor.slug} · ${vendor.sector || "B2B"} (${vendor.country}) · ${new Date(vendor.verified_at || vendor.created_at).toLocaleDateString()}`;
       document.getElementById("verify-score").textContent = `${vendor.technical_score} / 100`;
-      document.getElementById("verify-pdf-btn").href = `${API_BASE}/api/dossier/${encodeURIComponent(vendor.slug)}/pdf?lang=${encodeURIComponent(currentLang)}`;
+      const pdfBase = isDemo
+        ? `${API_BASE}/api/demo/dossier/pdf`
+        : `${API_BASE}/api/dossier/${encodeURIComponent(vendor.slug)}/pdf`;
+      document.getElementById("verify-pdf-btn").href = `${pdfBase}?lang=${encodeURIComponent(currentLang)}`;
 
       const altLang = currentLang === "en" ? "es" : "en";
       const altLink = document.getElementById("verify-pdf-alt");
       if (altLink) {
-        altLink.href = `${API_BASE}/api/dossier/${encodeURIComponent(vendor.slug)}/pdf?lang=${altLang}`;
+        altLink.href = `${pdfBase}?lang=${altLang}`;
         altLink.textContent = altLang === "en" ? "Download in EN" : "Descargar en ES";
       }
 
@@ -150,7 +159,82 @@
         ctrlDiv.appendChild(p);
       }
 
-      if (vendor.status === "verified" && !document.getElementById("verify-badge-snippet-box")) {
+      const tplBox = document.getElementById("verify-templates");
+      if (tplBox) {
+        tplBox.textContent = "";
+        if (!isDemo && vendor.status === "verified") {
+          const title = document.createElement("strong");
+          title.style.display = "block";
+          title.style.fontSize = "13px";
+          title.style.marginBottom = "8px";
+          title.style.color = "var(--navy)";
+          title.textContent = currentLang === "en"
+            ? "Included NIS2 Compliance Templates Pack (pre-filled for your company):"
+            : "Pack de 3 Plantillas NIS2 incluidas (pre-rellenadas para tu empresa):";
+          tplBox.appendChild(title);
+
+          const templates = [
+            {
+              id: "incident-policy",
+              es: "1. Política de Notificación de Incidentes (24h / 72h - Art. 23)",
+              en: "1. Incident Notification Policy (24h / 72h - Art. 23)",
+            },
+            {
+              id: "supplier-risk-matrix",
+              es: "2. Matriz Básica de Riesgos de Proveedores (Art. 21.2.d)",
+              en: "2. Supplier Risk Matrix (Art. 21.2.d)",
+            },
+            {
+              id: "security-posture-letter",
+              es: "3. Declaración de Postura Técnica de Ciberseguridad (firmable)",
+              en: "3. Signable Cybersecurity Posture Declaration",
+            },
+          ];
+
+          for (const item of templates) {
+            const row = document.createElement("div");
+            row.style.display = "flex";
+            row.style.flexWrap = "wrap";
+            row.style.alignItems = "center";
+            row.style.justifyContent = "space-between";
+            row.style.gap = "8px";
+            row.style.padding = "8px 10px";
+            row.style.marginBottom = "6px";
+            row.style.border = "1px solid #cbd5e1";
+            row.style.borderRadius = "8px";
+            row.style.background = "#f8fafc";
+
+            const lbl = document.createElement("span");
+            lbl.style.fontSize = "12.5px";
+            lbl.style.fontWeight = "600";
+            lbl.textContent = item[currentLang];
+
+            const links = document.createElement("div");
+            links.style.display = "flex";
+            links.style.gap = "10px";
+            links.style.fontSize = "12px";
+
+            const aHtml = document.createElement("a");
+            aHtml.href = `${API_BASE}/api/dossier/${encodeURIComponent(vendor.slug)}/template/${item.id}?format=html&lang=${encodeURIComponent(currentLang)}`;
+            aHtml.target = "_blank";
+            aHtml.rel = "noopener noreferrer";
+            aHtml.textContent = currentLang === "en" ? "Printable / PDF" : "Imprimir / PDF";
+            aHtml.style.fontWeight = "600";
+
+            const aMd = document.createElement("a");
+            aMd.href = `${API_BASE}/api/dossier/${encodeURIComponent(vendor.slug)}/template/${item.id}?format=md&lang=${encodeURIComponent(currentLang)}`;
+            aMd.textContent = "Markdown (.md)";
+
+            links.appendChild(aHtml);
+            links.appendChild(aMd);
+            row.appendChild(lbl);
+            row.appendChild(links);
+            tplBox.appendChild(row);
+          }
+        }
+      }
+
+      if (vendor.status === "verified" && !isDemo && !document.getElementById("verify-badge-snippet-box")) {
         const box = document.createElement("div");
         box.id = "verify-badge-snippet-box";
         box.style.marginTop = "18px";
@@ -199,8 +283,11 @@
     const params = new URLSearchParams(window.location.search);
     const verifySlug = params.get("verify");
     const sessionId = params.get("session_id");
+    const isDemo = params.get("demo") === "true";
     if (verifySlug) {
-      await loadVerificationView(verifySlug, sessionId);
+      await loadVerificationView(verifySlug, sessionId, false);
+    } else if (isDemo) {
+      await loadVerificationView("acme-logistics-eu-demo", null, true);
     }
 
     document.getElementById("scan-form").addEventListener("submit", async (e) => {

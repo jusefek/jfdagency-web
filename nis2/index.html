@@ -117,6 +117,7 @@
             </a>
             <a href="/nis2/" class="btn btn-outline">Hacer nueva auditoría</a>
           </div>
+          <div id="verify-templates" style="margin-top:18px;"></div>
         </section>
 
         <div id="wizard-container">
@@ -138,6 +139,14 @@
                 style="flex:1;min-width:220px;padding:10px 12px;border:1px solid var(--border);border-radius:8px;font-size:14px;"
               />
               <button id="scan-btn" type="submit" class="btn btn-emerald">Analizar dominio gratis</button>
+              <a
+                href="https://nis2-vendor-pass.onrender.com/api/demo/dossier/pdf?lang=es"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn btn-outline"
+              >
+                Ver ejemplo real de Dossier (PDF)
+              </a>
             </form>
             <div id="scan-error" class="modal-status modal-status-err hidden" style="margin-top:12px;"></div>
 
@@ -187,6 +196,18 @@
             <h2>Paso 3: Emitir Dossier Técnico PDF &amp; Sello Verificado (129 €/año)</h2>
             <p id="step3-summary"></p>
 
+            <div style="margin-top:14px;padding:16px;border:1px solid #cbd5e1;border-radius:10px;background:#f8fafc;">
+              <strong style="display:block;font-size:14px;color:var(--navy);margin-bottom:8px;">
+                Qué incluye tu licencia anual (129 €/año):
+              </strong>
+              <ul style="margin:0;padding-left:18px;font-size:13.5px;color:#334155;line-height:1.6;">
+                <li>Dossier técnico mapeado al Art. 21(2) NIS2 listo para enviar a clientes.</li>
+                <li>Sello y página pública de verificación activa durante 12 meses (con código QR y re-verificaciones).</li>
+                <li>Pack de 3 plantillas editables (Incidentes 24h/72h, Matriz de riesgos y Declaración firmable).</li>
+                <li>Respuestas técnicas listas para copiar en cuestionarios de homologación de proveedores.</li>
+              </ul>
+            </div>
+
             <div style="position:relative;margin-top:14px;border:1px solid var(--border);border-radius:12px;overflow:hidden;background:#f8fafc;padding:18px;">
               <div style="filter:blur(4px);opacity:0.55;user-select:none;pointer-events:none;">
                 <div style="height:26px;background:#0b1f3a;border-radius:6px;margin-bottom:10px;"></div>
@@ -200,16 +221,27 @@
               <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;background:rgba(11,31,58,0.68);color:#ffffff;padding:16px;text-align:center;">
                 <span style="font-size:20px;margin-bottom:4px;">&#128274;</span>
                 <strong style="font-size:15px;">Dossier Oficial listo para emitir — Desbloquear por 129 €/año</strong>
-                <span style="font-size:12px;color:#cbd5e1;margin-top:4px;">Incluye informe ejecutivo PDF de 2 páginas, código QR y sello público verificable.</span>
+                <span style="font-size:12px;color:#cbd5e1;margin-top:4px;">Incluye informe ejecutivo PDF de 3 páginas, código QR, respuestas B2B y pack de 3 plantillas.</span>
               </div>
             </div>
 
             <div id="checkout-error" class="modal-status modal-status-err hidden" style="margin-top:12px;"></div>
-            <div class="btn-row" style="margin-top:14px;">
+            <div class="btn-row" style="margin-top:14px;align-items:center;">
               <button id="checkout-btn" type="button" class="btn btn-emerald">
                 Desbloquear Dossier PDF y Sello (129 €/año)
               </button>
+              <a
+                href="https://nis2-vendor-pass.onrender.com/api/demo/dossier/pdf?lang=es"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn btn-outline"
+              >
+                Ver ejemplo real de Dossier
+              </a>
             </div>
+            <p style="margin-top:10px;font-size:12.5px;color:#475569;">
+              Pago seguro con Stripe · Factura oficial europea al instante (válida para contabilidad) · Renovación anual cancelable en 1 clic.
+            </p>
           </section>
         </div>
 
