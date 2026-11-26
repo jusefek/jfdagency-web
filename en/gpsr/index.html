@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Free EU GPSR Block Generator | Regulation 2023/988 HTML</title>
+    <meta
+      name="description"
+      content="Free EU Regulation 2023/988 (GPSR) HTML compliance block generator for Shopify & WooCommerce: Manufacturer, EU Responsible Person, and CE badge."
+    />
+    <link rel="canonical" href="https://jfdagency.com/en/gpsr/" />
+    <link rel="alternate" hreflang="es" href="https://jfdagency.com/gpsr/" />
+    <link rel="alternate" hreflang="en" href="https://jfdagency.com/en/gpsr/" />
+    <link rel="alternate" hreflang="x-default" href="https://jfdagency.com/gpsr/" />
+    <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
+    <meta property="og:title" content="Free EU GPSR Block Generator | Regulation 2023/988 HTML" />
+    <meta property="og:description" content="Generate an EU GPSR 2023/988 product compliance block in EN, ES, DE, or FR in 1 minute." />
+    <meta property="og:url" content="https://jfdagency.com/en/gpsr/" />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary" />
+    <link rel="stylesheet" href="/assets/css/styles.css" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://jfdagency.com/en/" },
+              { "@type": "ListItem", "position": 2, "name": "GPSR Generator", "item": "https://jfdagency.com/en/gpsr/" }
+            ]
+          },
+          {
+            "@type": "WebApplication",
+            "name": "Free EU GPSR Compliance Block Generator",
+            "applicationCategory": "BusinessApplication",
+            "isAccessibleForFree": true,
+            "url": "https://jfdagency.com/en/gpsr/"
+          }
+        ]
+      }
+    </script>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container nav-inner">
+        <a href="/en/" class="brand-link">
+          <span class="brand-mark">JFD</span>
+          <span>JFD Agency</span>
+        </a>
+        <nav class="nav-links">
+          <a href="/en/#solutions">SaaS Solutions</a>
+          <a href="/en/nis2/">NIS2 Vendor Pass</a>
+          <a href="/en/gpsr/">GPSR Generator</a>
+          <a href="/privacy/">Privacy</a>
+          <a href="/gpsr/" style="font-size:12px;border:1px solid var(--border);padding:4px 8px;border-radius:6px;">ES</a>
+          <button type="button" class="btn btn-contact" data-open-contact="Proyecto a medida">Contact</button>
+        </nav>
+      </div>
+    </header>
+
+    <section class="hero" style="padding: 44px 0 38px;">
+      <div class="container">
+        <span class="hero-badge">Free Tool · Regulation (EU) 2023/988</span>
+        <h1>Free EU GPSR Compliance Block Generator</h1>
+        <p>
+          Fill in your Manufacturer and EU Responsible Person details, pick your storefront language
+          (<strong>EN / ES / DE / FR</strong>), and copy ready-to-paste HTML for any product page.
+        </p>
+      </div>
+    </section>
+
+    <main class="section">
+      <div class="container">
+        <div class="gen-grid">
+          <section class="card">
+            <h2>1. GPSR Compliance Details</h2>
+            <form id="gpsr-form">
+              <div class="form-group">
+                <label for="lang">Block language</label>
+                <select id="lang">
+                  <option value="en" selected>English (EN)</option>
+                  <option value="es">Español (ES)</option>
+                  <option value="de">Deutsch (DE)</option>
+                  <option value="fr">Français (FR)</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="mfgName">Manufacturer legal name</label>
+                <input id="mfgName" type="text" value="Nordic Sound GmbH" />
+              </div>
+              <div class="form-group">
+                <label for="mfgAddr">Manufacturer postal address</label>
+                <textarea id="mfgAddr" rows="2">Hafenstraße 42, 20457 Hamburg, Germany</textarea>
+              </div>
+              <div class="form-group">
+                <label for="mfgEmail">Manufacturer email or contact URL</label>
+                <input id="mfgEmail" type="text" value="compliance@nordicsound.de" />
+              </div>
+              <div class="form-group">
+                <label for="euName">EU Responsible Person (Art. 16 GPSR)</label>
+                <input id="euName" type="text" value="EU Compliance Representative GmbH" />
+              </div>
+              <div class="form-group">
+                <label for="euAddr">EU postal address</label>
+                <textarea id="euAddr" rows="2">Friedrichstraße 123, 10117 Berlin, Germany</textarea>
+              </div>
+              <div class="form-group">
+                <label for="euEmail">EU Responsible Person email</label>
+                <input id="euEmail" type="email" value="gpsr@eucompliance.de" />
+              </div>
+              <div class="form-group">
+                <label for="safety">Safety warnings &amp; instructions</label>
+                <textarea id="safety" rows="2">Keep away from heat and moisture. Not suitable for children under 3 years.</textarea>
+              </div>
+              <div class="form-group">
+                <label style="display:flex;align-items:center;gap:8px;cursor:pointer;">
+                  <input id="ceMark" type="checkbox" checked style="width:auto;" />
+                  <span>Include CE Conformity badge</span>
+                </label>
+              </div>
+            </form>
+          </section>
+
+          <section style="display:flex;flex-direction:column;gap:20px;">
+            <div class="card">
+              <h2>2. Live Storefront Preview</h2>
+              <div id="preview-container"></div>
+            </div>
+
+            <div class="card">
+              <div class="card-header" style="display:flex;justify-content:space-between;align-items:center;gap:12px;">
+                <h2 style="margin:0;">3. Ready-to-Paste HTML</h2>
+                <button id="copy-html-btn" type="button" class="btn btn-emerald">
+                  Copy HTML in 1 Click
+                </button>
+              </div>
+              <textarea id="html-output" class="code-output" readonly></textarea>
+            </div>
+
+            <div class="agency-banner" style="padding:22px;">
+              <div>
+                <h2 style="margin:0 0 6px;color:#ffffff;font-size:18px;">Managing dozens or thousands of SKUs?</h2>
+                <p style="font-size:13px;">
+                  Automate GPSR compliance blocks by vendor or brand with
+                  <strong>SafeGuard GPSR EU</strong> for Shopify and WooCommerce.
+                </p>
+              </div>
+              <div class="btn-row">
+                <a href="https://apps.shopify.com/safeguard-gpsr-eu" target="_blank" rel="noopener noreferrer" class="btn btn-emerald">
+                  Shopify App
+                </a>
+                <a href="/en/#safeguard-gpsr" class="btn btn-outline">
+                  WooCommerce Plugin
+                </a>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <article class="seo-guide">
+          <h2>EU Regulation 2023/988 (GPSR) E-Commerce Compliance Checklist</h2>
+          <p>
+            The <strong>General Product Safety Regulation (EU) 2023/988 (GPSR)</strong> requires online
+            merchants selling to EU consumers (including Shopify and WooCommerce stores) to clearly
+            display product safety and traceability information under <strong>Articles 16 and 19</strong>.
+          </p>
+          <ul>
+            <li><strong>Manufacturer Details (Art. 19):</strong> Legal name or registered trademark, full postal address, and electronic contact address.</li>
+            <li><strong>EU Responsible Person (Art. 16):</strong> Mandatory whenever the manufacturer is established outside the EU, with an EU postal address and email.</li>
+            <li><strong>Local-Language Safety Warnings:</strong> Age limits, precautions, and usage instructions in the language of each target EU market.</li>
+          </ul>
+        </article>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <span>&copy; 2026 JFD Agency</span>
+        <div class="footer-links">
+          <a href="/en/">Home</a>
+          <a href="/en/nis2/">NIS2 Vendor Pass</a>
+          <a href="/privacy/">Privacy Policy</a>
+          <a href="/terms/">Terms of Use</a>
+          <a href="#" data-open-contact="Proyecto a medida">soporte@tryjfdagency.com</a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="/assets/js/gpsr-generator.js"></script>
+    <script src="/assets/js/contact-modal.js"></script>
+  </body>
+</html>

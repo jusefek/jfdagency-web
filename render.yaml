@@ -5,3 +5,44 @@ services:
     branch: main
     autoDeploy: true
     staticPublishPath: .
+    headers:
+      - path: /*
+        name: Strict-Transport-Security
+        value: max-age=31536000; includeSubDomains; preload
+      - path: /*
+        name: Content-Security-Policy
+        value: default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self' https://nis2-vendor-pass.onrender.com https://formsubmit.co; frame-ancestors 'none';
+      - path: /*
+        name: X-Frame-Options
+        value: DENY
+      - path: /*
+        name: X-Content-Type-Options
+        value: nosniff
+      - path: /*
+        name: Referrer-Policy
+        value: strict-origin-when-cross-origin
+    routes:
+      - type: redirect
+        source: /index.html
+        destination: /
+        status: 301
+      - type: redirect
+        source: /nis2/index.html
+        destination: /nis2/
+        status: 301
+      - type: redirect
+        source: /gpsr/index.html
+        destination: /gpsr/
+        status: 301
+      - type: redirect
+        source: /en/index.html
+        destination: /en/
+        status: 301
+      - type: redirect
+        source: /en/nis2/index.html
+        destination: /en/nis2/
+        status: 301
+      - type: redirect
+        source: /en/gpsr/index.html
+        destination: /en/gpsr/
+        status: 301

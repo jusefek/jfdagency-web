@@ -3,60 +3,24 @@
 
   const I18N = {
     es: {
-      badge: "Directiva (UE) 2022/2555 · Proveedores B2B",
-      heroTitle: "NIS2 Vendor Pass: Auditoría Técnica y Dossier Verificado",
-      heroDesc:
-        "Verificación técnica externa automática (SPF, DKIM, DMARC, SSL y cabeceras) + autodeclaración estructurada NIS2 Art. 21 lista para entregar a departamentos de Compras (129 €/año).",
-      step1Pill: "1. Escaneo Técnico Gratis",
-      step2Pill: "2. Cuestionario NIS2 Art. 21",
-      step3Pill: "3. Dossier PDF y Sello (129 €/año)",
-      s1Title: "Paso 1 (Gratis): Escaneo Técnico en Vivo de tu Dominio",
-      s1Sub: "Comprobamos registros DNS (SPF, DKIM, DMARC), certificado SSL/TLS, redirección HTTPS y cabeceras de seguridad.",
-      scanBtn: "Analizar dominio gratis",
-      s2Title: "Paso 2: Matriz Organizativa NIS2 Art. 21 (10 Controles Esenciales)",
-      s2Sub: "Completa los datos de tu empresa y marca las medidas implantadas para generar el Dossier Técnico.",
-      compLabel: "Razón social / Empresa",
-      emailLabel: "Email de contacto",
-      sectorLabel: "Sector",
-      countryLabel: "País UE",
-      saveAssessBtn: "Guardar evaluación y continuar al Paso 3",
-      s3Title: "Paso 3: Emitir Dossier Técnico PDF & Sello Verificado (129 €/año)",
-      lockedTitle: "Dossier Oficial listo para emitir — Desbloquear por 129 €/año",
-      lockedSub: "Incluye informe ejecutivo PDF de 2 páginas, código QR y sello público verificable.",
-      checkoutBtn: "Desbloquear Dossier PDF y Sello (129 €/año)",
-      phDomain: "ejemplo.com",
-      phEmail: "seguridad@acme.com",
-      phSector: "SaaS / Logística / Industria",
-      downloadPdfBtn: "Descargar Dossier PDF",
-      newAuditBtn: "Hacer nueva auditoría",
+      needDomain: "Introduce primero un dominio en el Paso 1.",
+      scanFailed: "No se pudo completar el escaneo del dominio.",
+      saveFailed: "No se pudo guardar la evaluación.",
+      checkoutFailed: "No se pudo iniciar el checkout. Inténtalo de nuevo.",
+      verifyFailed: "No se pudo cargar o verificar este código de proveedor.",
+      generatedCode: (slug, score) => `Código generado: ${slug} · Puntuación técnica: ${score}/100`,
+      verifiedBadge: "NIS2 VERIFICADO",
+      pendingBadge: "BORRADOR / PENDIENTE",
     },
     en: {
-      badge: "EU Directive 2022/2555 · B2B Suppliers",
-      heroTitle: "NIS2 Vendor Pass: Technical Audit & Verified Dossier",
-      heroDesc:
-        "Automated external technical perimeter verification (SPF, DKIM, DMARC, SSL & headers) + structured NIS2 Art. 21 vendor self-declaration ready for Procurement teams (€129/year).",
-      step1Pill: "1. Free Technical Scan",
-      step2Pill: "2. NIS2 Art. 21 Questionnaire",
-      step3Pill: "3. PDF Dossier & Seal (€129/yr)",
-      s1Title: "Step 1 (Free): Live Domain Technical Scan",
-      s1Sub: "We check DNS records (SPF, DKIM, DMARC), SSL/TLS validity, HTTPS redirect, and security headers.",
-      scanBtn: "Scan domain for free",
-      s2Title: "Step 2: NIS2 Art. 21 Organizational Matrix (10 Essential Controls)",
-      s2Sub: "Enter your company details and mark implemented controls to generate your Technical Dossier.",
-      compLabel: "Company legal name",
-      emailLabel: "Contact email",
-      sectorLabel: "Industry sector",
-      countryLabel: "EU Country",
-      saveAssessBtn: "Save assessment & continue to Step 3",
-      s3Title: "Step 3: Issue PDF Technical Dossier & Verified Seal (€129/yr)",
-      lockedTitle: "Official Dossier ready to issue — Unlock for €129/year",
-      lockedSub: "Includes 2-page executive PDF report, QR code, and public verification seal.",
-      checkoutBtn: "Unlock PDF Dossier & Seal (€129/yr)",
-      phDomain: "example.com",
-      phEmail: "security@acme.com",
-      phSector: "SaaS / Logistics / Manufacturing",
-      downloadPdfBtn: "Download PDF Dossier",
-      newAuditBtn: "Run new audit",
+      needDomain: "Please enter a domain in Step 1 first.",
+      scanFailed: "Could not complete the domain scan.",
+      saveFailed: "Could not save the assessment.",
+      checkoutFailed: "Could not start checkout. Please try again.",
+      verifyFailed: "Could not load or verify this vendor reference code.",
+      generatedCode: (slug, score) => `Reference code: ${slug} · Technical score: ${score}/100`,
+      verifiedBadge: "NIS2 VERIFIED",
+      pendingBadge: "DRAFT / PENDING",
     },
   };
 
@@ -73,16 +37,16 @@
     { key: "mfa_comms", es: "Art. 21(2)(j) Autenticación multifactor (MFA) y comunicaciones seguras", en: "Art. 21(2)(j) Multi-Factor Authentication (MFA) & secure comms" },
   ];
 
-  let currentLang = "es";
+  const currentLang = document.documentElement.lang === "en" ? "en" : "es";
+  window.JFD_LANG = currentLang;
+  const t = I18N[currentLang];
+
   let lastScan = null;
   let currentSlug = null;
 
   function renderControls() {
     const wrap = document.getElementById("controls-list");
-    const prevChecked = {};
-    for (const inp of wrap.querySelectorAll("input[type='checkbox']")) {
-      prevChecked[inp.name] = inp.checked;
-    }
+    if (!wrap) return;
     wrap.innerHTML = "";
     for (const c of CONTROLS) {
       const label = document.createElement("label");
@@ -90,28 +54,12 @@
       const cb = document.createElement("input");
       cb.type = "checkbox";
       cb.name = c.key;
-      cb.checked = prevChecked[c.key] ?? false;
       const span = document.createElement("span");
       span.textContent = c[currentLang];
       label.appendChild(cb);
       label.appendChild(span);
       wrap.appendChild(label);
     }
-  }
-
-  function applyLang(lang) {
-    currentLang = lang === "en" ? "en" : "es";
-    window.JFD_LANG = currentLang;
-    const dict = I18N[currentLang];
-    for (const el of document.querySelectorAll("[data-i18n]")) {
-      const key = el.getAttribute("data-i18n");
-      if (dict[key]) el.textContent = dict[key];
-    }
-    for (const el of document.querySelectorAll("[data-i18n-ph]")) {
-      const key = el.getAttribute("data-i18n-ph");
-      if (dict[key]) el.setAttribute("placeholder", dict[key]);
-    }
-    renderControls();
   }
 
   function renderScan(scan) {
@@ -137,7 +85,12 @@
     for (const it of items) {
       const div = document.createElement("div");
       div.className = `vec-card ${it.ok ? "vec-ok" : "vec-fail"}`;
-      div.innerHTML = `<strong>${it.label}</strong><div>${it.detail}</div>`;
+      const strong = document.createElement("strong");
+      strong.textContent = it.label;
+      const detail = document.createElement("div");
+      detail.textContent = it.detail;
+      div.appendChild(strong);
+      div.appendChild(detail);
       grid.appendChild(div);
     }
 
@@ -155,41 +108,52 @@
   async function loadVerificationView(slug, sessionId) {
     const view = document.getElementById("verify-view");
     const wizard = document.getElementById("wizard-container");
+    const errBox = document.getElementById("verify-error");
 
-    if (sessionId) {
-      await fetch(`${API_BASE}/api/verify-payment?slug=${encodeURIComponent(slug)}&session_id=${encodeURIComponent(sessionId)}`).catch(() => {});
-    }
+    try {
+      if (sessionId) {
+        await fetch(`${API_BASE}/api/verify-payment?slug=${encodeURIComponent(slug)}&session_id=${encodeURIComponent(sessionId)}`);
+      }
 
-    const resp = await fetch(`${API_BASE}/api/verify/${encodeURIComponent(slug)}`);
-    const data = await resp.json();
-    if (!resp.ok || !data.ok) return;
+      const resp = await fetch(`${API_BASE}/api/verify/${encodeURIComponent(slug)}`);
+      const data = await resp.json().catch(() => ({}));
+      if (!resp.ok || !data.ok || !data.verified) {
+        throw new Error(data.error || t.verifyFailed);
+      }
 
-    const vendor = data.vendor;
-    wizard.classList.add("hidden");
-    view.classList.remove("hidden");
+      const vendor = data.vendor;
+      wizard.classList.add("hidden");
+      view.classList.remove("hidden");
 
-    const badge = document.getElementById("verify-badge");
-    badge.textContent = vendor.status === "verified" ? "NIS2 VERIFIED" : "DRAFT / PENDING";
-    document.getElementById("verify-company").textContent = `${vendor.company_name} (${vendor.domain})`;
-    document.getElementById("verify-meta").textContent = `Código: ${vendor.slug} · ${vendor.sector || "B2B"} (${vendor.country}) · ${new Date(vendor.verified_at || vendor.created_at).toLocaleDateString()}`;
-    document.getElementById("verify-score").textContent = `${vendor.technical_score} / 100`;
-    document.getElementById("verify-pdf-btn").href = `${API_BASE}/api/dossier/${encodeURIComponent(vendor.slug)}/pdf?lang=${encodeURIComponent(currentLang)}`;
-    const altLang = currentLang === "en" ? "es" : "en";
-    const altLink = document.getElementById("verify-pdf-alt");
-    if (altLink) {
-      altLink.href = `${API_BASE}/api/dossier/${encodeURIComponent(vendor.slug)}/pdf?lang=${altLang}`;
-      altLink.textContent = altLang === "en" ? "Download in EN" : "Descargar en ES";
-    }
+      const badge = document.getElementById("verify-badge");
+      badge.textContent = vendor.status === "verified" ? t.verifiedBadge : t.pendingBadge;
+      document.getElementById("verify-company").textContent = `${vendor.company_name} (${vendor.domain})`;
+      document.getElementById("verify-meta").textContent = `${vendor.slug} · ${vendor.sector || "B2B"} (${vendor.country}) · ${new Date(vendor.verified_at || vendor.created_at).toLocaleDateString()}`;
+      document.getElementById("verify-score").textContent = `${vendor.technical_score} / 100`;
+      document.getElementById("verify-pdf-btn").href = `${API_BASE}/api/dossier/${encodeURIComponent(vendor.slug)}/pdf?lang=${encodeURIComponent(currentLang)}`;
 
-    const ctrlDiv = document.getElementById("verify-controls");
-    ctrlDiv.innerHTML = "";
-    const q = vendor.questionnaire || {};
-    for (const c of CONTROLS) {
-      const p = document.createElement("div");
-      p.style.fontSize = "13px";
-      p.style.marginBottom = "4px";
-      p.textContent = `${q[c.key] ? "✓" : "○"} ${c[currentLang]}`;
-      ctrlDiv.appendChild(p);
+      const altLang = currentLang === "en" ? "es" : "en";
+      const altLink = document.getElementById("verify-pdf-alt");
+      if (altLink) {
+        altLink.href = `${API_BASE}/api/dossier/${encodeURIComponent(vendor.slug)}/pdf?lang=${altLang}`;
+        altLink.textContent = altLang === "en" ? "Download in EN" : "Descargar en ES";
+      }
+
+      const ctrlDiv = document.getElementById("verify-controls");
+      ctrlDiv.innerHTML = "";
+      const q = vendor.questionnaire || {};
+      for (const c of CONTROLS) {
+        const p = document.createElement("div");
+        p.style.fontSize = "13px";
+        p.style.marginBottom = "4px";
+        p.textContent = `${q[c.key] ? "✓" : "○"} ${c[currentLang]}`;
+        ctrlDiv.appendChild(p);
+      }
+    } catch (err) {
+      if (errBox) {
+        errBox.textContent = err.message || t.verifyFailed;
+        errBox.classList.remove("hidden");
+      }
     }
   }
 
@@ -197,7 +161,13 @@
     renderControls();
 
     const langSelect = document.getElementById("nis2-lang");
-    langSelect.addEventListener("change", (e) => applyLang(e.target.value));
+    if (langSelect) {
+      langSelect.value = currentLang;
+      langSelect.addEventListener("change", (e) => {
+        const target = e.target.value === "en" ? "/en/nis2/" : "/nis2/";
+        window.location.href = target + window.location.search;
+      });
+    }
 
     const params = new URLSearchParams(window.location.search);
     const verifySlug = params.get("verify");
@@ -220,11 +190,11 @@
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ domain }),
         });
-        const data = await resp.json();
-        if (!resp.ok || !data.ok) throw new Error(data.error || "Scan failed");
+        const data = await resp.json().catch(() => ({}));
+        if (!resp.ok || !data.ok) throw new Error(data.error || t.scanFailed);
         renderScan(data.scan);
       } catch (err) {
-        errBox.textContent = err.message;
+        errBox.textContent = err.message || t.scanFailed;
         errBox.classList.remove("hidden");
       } finally {
         btn.disabled = false;
@@ -237,7 +207,7 @@
       errBox.classList.add("hidden");
       const domain = lastScan?.domain || document.getElementById("scan-domain").value.trim();
       if (!domain) {
-        errBox.textContent = "Introduce primero un dominio en el Paso 1.";
+        errBox.textContent = t.needDomain;
         errBox.classList.remove("hidden");
         return;
       }
@@ -260,22 +230,23 @@
             contactEmail: document.getElementById("comp-email").value.trim(),
             sector: document.getElementById("comp-sector").value.trim(),
             country: document.getElementById("comp-country").value.trim(),
-            scanResults: lastScan,
             questionnaire,
             lang: currentLang,
           }),
         });
-        const data = await resp.json();
-        if (!resp.ok || !data.ok) throw new Error(data.error || "Failed to save assessment");
+        const data = await resp.json().catch(() => ({}));
+        if (!resp.ok || !data.ok) throw new Error(data.error || t.saveFailed);
 
         currentSlug = data.slug;
         document.getElementById("pill-3").classList.add("active");
         document.getElementById("step3-card").classList.remove("hidden");
-        document.getElementById("step3-summary").textContent =
-          `Código generado: ${currentSlug} · Puntuación técnica: ${data.assessment.technical_score}/100`;
+        document.getElementById("step3-summary").textContent = t.generatedCode(
+          currentSlug,
+          data.assessment.technical_score,
+        );
         document.getElementById("step3-card").scrollIntoView({ behavior: "smooth" });
       } catch (err) {
-        errBox.textContent = err.message;
+        errBox.textContent = err.message || t.saveFailed;
         errBox.classList.remove("hidden");
       } finally {
         btn.disabled = false;
@@ -284,14 +255,28 @@
 
     document.getElementById("checkout-btn").addEventListener("click", async () => {
       if (!currentSlug) return;
-      const resp = await fetch(`${API_BASE}/api/checkout`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ slug: currentSlug }),
-      });
-      const data = await resp.json();
-      if (data.ok && data.checkoutUrl) {
+      const btn = document.getElementById("checkout-btn");
+      const errBox = document.getElementById("checkout-error");
+      if (errBox) errBox.classList.add("hidden");
+      btn.disabled = true;
+
+      try {
+        const resp = await fetch(`${API_BASE}/api/checkout`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ slug: currentSlug }),
+        });
+        const data = await resp.json().catch(() => ({}));
+        if (!resp.ok || !data.ok || !data.checkoutUrl) {
+          throw new Error(data.error || t.checkoutFailed);
+        }
         window.location.href = data.checkoutUrl;
+      } catch (err) {
+        if (errBox) {
+          errBox.textContent = err.message || t.checkoutFailed;
+          errBox.classList.remove("hidden");
+        }
+        btn.disabled = false;
       }
     });
   });

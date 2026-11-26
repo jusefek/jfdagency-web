@@ -144,11 +144,15 @@
     const copyBtn = overlay.querySelector("#jfd-copy-email");
     copyBtn.addEventListener("click", async () => {
       const t = MODAL_I18N[getLang()];
-      await navigator.clipboard.writeText(SUPPORT_EMAIL);
-      copyBtn.textContent = t.copied;
-      setTimeout(() => {
-        copyBtn.textContent = MODAL_I18N[getLang()].copy;
-      }, 1800);
+      try {
+        await navigator.clipboard.writeText(SUPPORT_EMAIL);
+        copyBtn.textContent = t.copied;
+        setTimeout(() => {
+          copyBtn.textContent = MODAL_I18N[getLang()].copy;
+        }, 1800);
+      } catch {
+        // ignore clipboard denial
+      }
     });
 
     const form = overlay.querySelector("#jfd-contact-form");

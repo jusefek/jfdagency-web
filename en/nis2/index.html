@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NIS2 Vendor Pass | Free Domain Scanner &amp; Art. 21 Dossier</title>
+    <meta
+      name="description"
+      content="Free live NIS2 domain security scanner (SPF, DKIM, DMARC, SSL, headers) and structured Art. 21 PDF Dossier for EU B2B supplier qualification."
+    />
+    <link rel="canonical" href="https://jfdagency.com/en/nis2/" />
+    <link rel="alternate" hreflang="es" href="https://jfdagency.com/nis2/" />
+    <link rel="alternate" hreflang="en" href="https://jfdagency.com/en/nis2/" />
+    <link rel="alternate" hreflang="x-default" href="https://jfdagency.com/nis2/" />
+    <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
+    <meta property="og:title" content="NIS2 Vendor Pass | Free Domain Scanner & Art. 21 Dossier" />
+    <meta property="og:description" content="External perimeter technical audit + structured NIS2 Art. 21 self-declaration PDF with QR verification." />
+    <meta property="og:url" content="https://jfdagency.com/en/nis2/" />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary" />
+    <link rel="stylesheet" href="/assets/css/styles.css" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://jfdagency.com/en/" },
+              { "@type": "ListItem", "position": 2, "name": "NIS2 Vendor Pass", "item": "https://jfdagency.com/en/nis2/" }
+            ]
+          },
+          {
+            "@type": "SoftwareApplication",
+            "name": "NIS2 Vendor Pass",
+            "applicationCategory": "SecurityApplication",
+            "operatingSystem": "Web",
+            "url": "https://jfdagency.com/en/nis2/",
+            "offers": [
+              { "@type": "Offer", "name": "Free Technical Domain Scan", "price": "0", "priceCurrency": "EUR" },
+              { "@type": "Offer", "name": "PDF Technical Dossier & Verified Seal (Annual)", "price": "129", "priceCurrency": "EUR" }
+            ]
+          }
+        ]
+      }
+    </script>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container nav-inner">
+        <a href="/en/" class="brand-link">
+          <span class="brand-mark">JFD</span>
+          <span>JFD Agency</span>
+        </a>
+        <nav class="nav-links">
+          <a href="/en/#solutions">Solutions</a>
+          <a href="/en/gpsr/">GPSR Generator</a>
+          <a href="/en/nis2/">NIS2 Vendor Pass</a>
+          <select id="nis2-lang" aria-label="Language" style="padding:6px 10px;border-radius:8px;border:1px solid var(--border);font-weight:600;">
+            <option value="es">ES</option>
+            <option value="en" selected>EN</option>
+          </select>
+          <button type="button" class="btn btn-contact" data-open-contact="Proyecto a medida">Contact</button>
+        </nav>
+      </div>
+    </header>
+
+    <section class="hero" style="padding: 46px 0 40px;">
+      <div class="container">
+        <span class="hero-badge">EU Directive 2022/2555 · B2B Suppliers</span>
+        <h1>NIS2 Vendor Pass: Technical Audit &amp; Verified Dossier</h1>
+        <p>
+          Automated external technical perimeter verification (SPF, DKIM, DMARC, SSL &amp; headers) +
+          structured NIS2 Art. 21 vendor self-declaration ready for Procurement teams (€129/year).
+        </p>
+      </div>
+    </section>
+
+    <main class="section">
+      <div class="container">
+        <div id="verify-error" class="modal-status modal-status-err hidden" style="margin-bottom:16px;"></div>
+
+        <section id="verify-view" class="card hidden" style="margin-bottom: 24px;">
+          <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;">
+            <div>
+              <span id="verify-badge" class="pill pill-emerald">NIS2 VERIFIED</span>
+              <h2 id="verify-company" style="margin:8px 0 4px;color:var(--navy);"></h2>
+              <p id="verify-meta"></p>
+            </div>
+            <div class="score-ring">
+              <span id="verify-score">-- / 100</span>
+            </div>
+          </div>
+          <div id="verify-controls" style="margin-top:16px;"></div>
+          <div class="btn-row" style="margin-top:16px;align-items:center;">
+            <a id="verify-pdf-btn" href="#" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+              Download PDF Dossier
+            </a>
+            <a id="verify-pdf-alt" href="#" target="_blank" rel="noopener noreferrer" style="font-size:12px;color:var(--muted);text-decoration:underline;">
+              Descargar en ES
+            </a>
+            <a href="/en/nis2/" class="btn btn-outline">Run new audit</a>
+          </div>
+        </section>
+
+        <div id="wizard-container">
+          <div class="nis2-steps">
+            <div id="pill-1" class="step-pill active">1. Free Technical Scan</div>
+            <div id="pill-2" class="step-pill">2. NIS2 Art. 21 Questionnaire</div>
+            <div id="pill-3" class="step-pill">3. PDF Dossier &amp; Seal (€129/yr)</div>
+          </div>
+
+          <section class="card" style="margin-bottom: 24px;">
+            <h2>Step 1 (Free): Live Domain Technical Scan</h2>
+            <p>We check DNS records (SPF, DKIM, DMARC), SSL/TLS validity, HTTPS redirect, and HTTP security headers.</p>
+            <form id="scan-form" style="display:flex;gap:10px;flex-wrap:wrap;margin-top:14px;">
+              <input
+                id="scan-domain"
+                type="text"
+                placeholder="example.com"
+                required
+                style="flex:1;min-width:220px;padding:10px 12px;border:1px solid var(--border);border-radius:8px;font-size:14px;"
+              />
+              <button id="scan-btn" type="submit" class="btn btn-emerald">Scan domain for free</button>
+            </form>
+            <div id="scan-error" class="modal-status modal-status-err hidden" style="margin-top:12px;"></div>
+
+            <div id="scan-results" class="hidden" style="margin-top:18px;">
+              <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;">
+                <strong id="scan-domain-title" style="font-size:16px;color:var(--navy);"></strong>
+                <span id="scan-score-badge" class="score-ring">0 / 100</span>
+              </div>
+              <div id="scan-vectors" class="scan-grid"></div>
+              <ul id="scan-recs" style="margin-top:14px;padding-left:18px;font-size:13px;color:var(--muted);"></ul>
+            </div>
+          </section>
+
+          <section id="step2-card" class="card" style="margin-bottom: 24px;">
+            <h2>Step 2: NIS2 Art. 21 Organizational Matrix (10 Essential Controls)</h2>
+            <p>Enter your company details and mark implemented controls to generate your Technical Dossier.</p>
+
+            <form id="assessment-form" style="margin-top:14px;">
+              <div class="grid-2">
+                <div class="form-group">
+                  <label for="comp-name">Company legal name</label>
+                  <input id="comp-name" type="text" required placeholder="Acme Tech Ltd." />
+                </div>
+                <div class="form-group">
+                  <label for="comp-email">Contact email</label>
+                  <input id="comp-email" type="email" required placeholder="security@acme.com" />
+                </div>
+                <div class="form-group">
+                  <label for="comp-sector">Industry sector</label>
+                  <input id="comp-sector" type="text" placeholder="SaaS / Logistics / Manufacturing" />
+                </div>
+                <div class="form-group">
+                  <label for="comp-country">EU Country</label>
+                  <input id="comp-country" type="text" value="DE" />
+                </div>
+              </div>
+
+              <div id="controls-list" style="margin-top:10px;"></div>
+              <div id="assess-error" class="modal-status modal-status-err hidden" style="margin-top:10px;"></div>
+              <button id="save-assess-btn" type="submit" class="btn btn-primary" style="margin-top:10px;">
+                Save assessment &amp; continue to Step 3
+              </button>
+            </form>
+          </section>
+
+          <section id="step3-card" class="card hidden">
+            <h2>Step 3: Issue PDF Technical Dossier &amp; Verified Seal (€129/yr)</h2>
+            <p id="step3-summary"></p>
+
+            <div style="position:relative;margin-top:14px;border:1px solid var(--border);border-radius:12px;overflow:hidden;background:#f8fafc;padding:18px;">
+              <div style="filter:blur(4px);opacity:0.55;user-select:none;pointer-events:none;">
+                <div style="height:26px;background:#0b1f3a;border-radius:6px;margin-bottom:10px;"></div>
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px;">
+                  <div style="height:44px;background:#e2e8f0;border-radius:6px;"></div>
+                  <div style="height:44px;background:#d1fae5;border-radius:6px;"></div>
+                </div>
+                <div style="height:14px;background:#cbd5e1;border-radius:4px;margin-bottom:6px;width:90%;"></div>
+                <div style="height:14px;background:#cbd5e1;border-radius:4px;margin-bottom:6px;width:75%;"></div>
+              </div>
+              <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;background:rgba(11,31,58,0.68);color:#ffffff;padding:16px;text-align:center;">
+                <span style="font-size:20px;margin-bottom:4px;">&#128274;</span>
+                <strong style="font-size:15px;">Official Dossier ready to issue — Unlock for €129/year</strong>
+                <span style="font-size:12px;color:#cbd5e1;margin-top:4px;">Includes 2-page executive PDF report, QR code, and public verification seal.</span>
+              </div>
+            </div>
+
+            <div id="checkout-error" class="modal-status modal-status-err hidden" style="margin-top:12px;"></div>
+            <div class="btn-row" style="margin-top:14px;">
+              <button id="checkout-btn" type="button" class="btn btn-emerald">
+                Unlock PDF Dossier &amp; Seal (€129/yr)
+              </button>
+            </div>
+          </section>
+        </div>
+
+        <article class="seo-guide">
+          <h2>EU Directive 2022/2555 (NIS2) B2B Supplier Qualification Guide</h2>
+          <p>
+            Article 21(2)(d) of the NIS2 Directive mandates that essential and important entities
+            assess <strong>supply chain security and direct supplier relationships</strong>.
+            Procurement and CISO teams across the EU increasingly require live perimeter evidence
+            and structured Art. 21 self-declarations before onboarding or renewing B2B vendors.
+          </p>
+
+          <h3>The 10 Core Controls of NIS2 Article 21(2)(a)–(j) &amp; Art. 23</h3>
+          <table>
+            <thead>
+              <tr>
+                <th>Legal Ref.</th>
+                <th>Directive (EU) 2022/2555 Requirement</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td><strong>Art. 21(2)(a)</strong></td><td>Policies on risk analysis and information system security.</td></tr>
+              <tr><td><strong>Art. 21(2)(b) / 23</strong></td><td>Incident handling and early CSIRT reporting (24h warning, 72h assessment).</td></tr>
+              <tr><td><strong>Art. 21(2)(c)</strong></td><td>Business continuity, backup management, and disaster recovery.</td></tr>
+              <tr><td><strong>Art. 21(2)(d)</strong></td><td>Supply chain security and third-party vendor governance.</td></tr>
+              <tr><td><strong>Art. 21(2)(e)</strong></td><td>Security in acquisition, development, and vulnerability handling.</td></tr>
+              <tr><td><strong>Art. 21(2)(f)</strong></td><td>Policies and procedures to assess cybersecurity measure effectiveness.</td></tr>
+              <tr><td><strong>Art. 21(2)(g)</strong></td><td>Basic cyber hygiene practices and staff cybersecurity training.</td></tr>
+              <tr><td><strong>Art. 21(2)(h)</strong></td><td>Policies and procedures regarding cryptography and encryption.</td></tr>
+              <tr><td><strong>Art. 21(2)(i)</strong></td><td>Human resources security, access control policies, and asset management.</td></tr>
+              <tr><td><strong>Art. 21(2)(j)</strong></td><td>Multi-Factor Authentication (MFA) and secured communications.</td></tr>
+            </tbody>
+          </table>
+
+          <h3>Estimate Your Full NIS2 Compliance Budget</h3>
+          <p>
+            Need to estimate internal audit, GRC tooling, and training costs by headcount? Use our
+            <a href="https://tryjfdagency.com/nis2-compliance-cost-calculator/" target="_blank" rel="noopener noreferrer">
+              EU NIS2 Compliance Cost Calculator
+            </a>.
+          </p>
+        </article>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <span>&copy; 2026 JFD Agency</span>
+        <div class="footer-links">
+          <a href="/en/">Home</a>
+          <a href="/en/gpsr/">GPSR Generator</a>
+          <a href="/privacy/">Privacy Policy</a>
+          <a href="/terms/">Terms of Use</a>
+          <a href="#" data-open-contact="Proyecto a medida">soporte@tryjfdagency.com</a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="/assets/js/nis2-app.js"></script>
+    <script src="/assets/js/contact-modal.js"></script>
+  </body>
+</html>

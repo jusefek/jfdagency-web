@@ -95,13 +95,17 @@
 
     const copyBtn = document.getElementById("copy-html-btn");
     copyBtn.addEventListener("click", async () => {
-      const code = document.getElementById("html-output").value;
-      await navigator.clipboard.writeText(code);
-      const prev = copyBtn.textContent;
-      copyBtn.textContent = "¡HTML copiado!";
-      setTimeout(() => {
-        copyBtn.textContent = prev;
-      }, 1800);
+      try {
+        const code = document.getElementById("html-output").value;
+        await navigator.clipboard.writeText(code);
+        const prev = copyBtn.textContent;
+        copyBtn.textContent = document.documentElement.lang === "en" ? "HTML copied!" : "¡HTML copiado!";
+        setTimeout(() => {
+          copyBtn.textContent = prev;
+        }, 1800);
+      } catch {
+        // ignore clipboard denial
+      }
     });
 
     update();
