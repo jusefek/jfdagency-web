@@ -630,23 +630,53 @@ a {
   color: var(--emerald-dark);
 }
 
+.badge {
+  display: inline-block;
+  padding: 5px 12px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.badge-green {
+  background-color: #ecfdf5;
+  color: #065f46;
+  border: 1px solid #a7f3d0;
+}
+
+a.btn.btn-emerald-solid,
 .btn-emerald-solid {
-  background: #059669;
+  background-color: #059669;
   color: #ffffff;
   font-weight: 700;
+  padding: 12px 22px;
+  border-radius: 8px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid #059669;
+}
+
+a.btn.btn-emerald-solid:hover,
+.btn-emerald-solid:hover {
+  background-color: #047857;
+  border-color: #047857;
+  color: #ffffff;
+  filter: none;
 }
 
 .gpsr-hero-grid {
   display: grid;
-  grid-template-columns: 1.15fr 0.85fr;
-  gap: 32px;
+  grid-template-columns: 1fr;
+  gap: 24px;
   align-items: center;
   margin-bottom: 36px;
 }
 
-@media (max-width: 860px) {
+@media (min-width: 860px) {
   .gpsr-hero-grid {
-    grid-template-columns: 1fr;
-    gap: 24px;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 32px;
   }
 }
