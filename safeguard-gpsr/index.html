@@ -57,24 +57,164 @@
   <main class="container" style="padding-top:48px;padding-bottom:64px;">
     <span class="badge badge-green">Reglamento (UE) 2023/988 · Shopify &amp; WooCommerce</span>
     <h1 style="margin-top:12px;">SafeGuard GPSR EU: Cumplimiento automático para tu catálogo</h1>
-    <p class="lead" style="max-width:740px;">
-      Publica la información obligatoria del fabricante, Persona Responsable en la UE, marcado CE y advertencias de seguridad en todas tus fichas de producto sin editar cientos de descripciones a mano.
+    <p class="lead" style="max-width:760px;">
+      Publica la información obligatoria del fabricante, Persona Responsable en la UE, identificación de lote/modelo y advertencias de seguridad en todas tus fichas de producto sin editar cientos de descripciones a mano.
     </p>
 
-    <div style="display:flex;gap:12px;flex-wrap:wrap;margin:24px 0 40px;">
-      <a href="/gpsr/" class="btn btn-primary">Probar Generador GPSR Gratis →</a>
+    <div style="display:flex;gap:12px;flex-wrap:wrap;margin:24px 0 8px;">
       <a href="https://buy.stripe.com/aFaaEY4pM51J1K8gnS57W00" target="_blank" rel="noopener noreferrer" class="btn btn-emerald">Adquirir Licencia Pro WooCommerce (39 €/año)</a>
-      <a href="https://tryjfdagency.com/eu-accessibility-act-eaa-cost-calculator/" target="_blank" rel="noopener" class="btn btn-outline">Ver Calculadoras UE</a>
+      <a href="/downloads/safeguard-gpsr-eu.zip" download class="btn btn-primary">Descargar Plugin Gratis (.zip)</a>
+      <a href="https://apps.shopify.com/safeguard-gpsr-eu" target="_blank" rel="noopener noreferrer" class="btn btn-outline">Instalar en Shopify</a>
     </div>
+    <p style="margin:0 0 36px;font-size:12.5px;color:#475569;">
+      Pago seguro con Stripe · Factura oficial europea al instante (válida para contabilidad) · Renovación anual cancelable en 1 clic
+    </p>
 
-    <section class="seo-guide" aria-label="Características de SafeGuard GPSR EU">
-      <h2>¿Qué automatiza SafeGuard GPSR EU?</h2>
+    <!-- 1 & 2. Vista previa visual realista + Previsualizador interactivo -->
+    <section class="card" style="margin-bottom:28px;" aria-label="Vista previa interactiva GPSR en ficha de producto">
+      <h2 style="margin-top:0;">Así queda en tu ficha de producto (Pruébalo en vivo)</h2>
+      <p style="color:#475569;font-size:14px;margin-top:4px;">
+        Personaliza estos campos de muestra para comprobar en tiempo real cómo se muestra el bloque legal del Reglamento (UE) 2023/988 en tu tienda WooCommerce o Shopify.
+      </p>
+
+      <div style="display:grid;gap:22px;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));margin-top:18px;align-items:start;">
+        <form onsubmit="return false;" style="display:grid;gap:12px;">
+          <div>
+            <label for="pv-mfg" style="display:block;font-size:12.5px;font-weight:600;margin-bottom:4px;">Fabricante (razón social y dirección)</label>
+            <input id="pv-mfg" type="text" placeholder="Nordic Home GmbH · Industriestr. 14, Berlín" style="width:100%;padding:9px 11px;border:1px solid #cbd5e1;border-radius:8px;font-size:13.5px;" />
+          </div>
+          <div>
+            <label for="pv-eu" style="display:block;font-size:12.5px;font-weight:600;margin-bottom:4px;">Persona Responsable en la UE</label>
+            <input id="pv-eu" type="text" placeholder="EU Compliance Rep S.L. · C/ Alcalá 120, Madrid" style="width:100%;padding:9px 11px;border:1px solid #cbd5e1;border-radius:8px;font-size:13.5px;" />
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
+            <div>
+              <label for="pv-email" style="display:block;font-size:12.5px;font-weight:600;margin-bottom:4px;">Email de contacto</label>
+              <input id="pv-email" type="email" placeholder="compliance@tienda.eu" style="width:100%;padding:9px 11px;border:1px solid #cbd5e1;border-radius:8px;font-size:13.5px;" />
+            </div>
+            <div>
+              <label for="pv-batch" style="display:block;font-size:12.5px;font-weight:600;margin-bottom:4px;">Modelo / Lote</label>
+              <input id="pv-batch" type="text" placeholder="MOD-2026-EU / Lote A4" style="width:100%;padding:9px 11px;border:1px solid #cbd5e1;border-radius:8px;font-size:13.5px;" />
+            </div>
+          </div>
+          <div>
+            <label for="pv-warn" style="display:block;font-size:12.5px;font-weight:600;margin-bottom:4px;">Advertencias de seguridad</label>
+            <input id="pv-warn" type="text" placeholder="No apto para menores de 3 años. Usar bajo supervisión." style="width:100%;padding:9px 11px;border:1px solid #cbd5e1;border-radius:8px;font-size:13.5px;" />
+          </div>
+          <p style="margin:2px 0 0;font-size:12px;color:#64748b;">
+            ¿Necesitas generar el HTML suelto para un producto? Usa el <a href="/gpsr/" style="color:#059669;font-weight:600;">Generador GPSR gratuito →</a>
+          </p>
+        </form>
+
+        <div style="border:1px solid #cbd5e1;border-radius:12px;padding:18px;background:#ffffff;box-shadow:0 4px 14px rgba(15,23,42,0.06);">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;">
+            <span style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.04em;color:#64748b;">Vista previa en ficha de producto</span>
+            <span style="font-size:11px;padding:2px 8px;border-radius:999px;background:#ecfdf5;color:#065f46;font-weight:600;">CE · EU 2023/988</span>
+          </div>
+          <div style="font-weight:700;font-size:15px;color:#0f172a;margin-bottom:4px;">Lámpara de Escritorio LED Pro</div>
+          <div style="font-size:13px;color:#059669;font-weight:700;margin-bottom:12px;">49,90 € · En stock</div>
+
+          <div style="border:1px solid #cbd5e1;border-radius:8px;background:#f8fafc;padding:12px 14px;font-size:13px;line-height:1.5;color:#1e293b;">
+            <div style="font-weight:700;color:#0f172a;margin-bottom:8px;display:flex;justify-content:space-between;">
+              <span>Seguridad y Cumplimiento GPSR (UE)</span>
+              <span style="font-size:11px;color:#475569;">Art. 19</span>
+            </div>
+            <div style="display:grid;gap:6px;border-top:1px solid #e2e8f0;padding-top:8px;">
+              <div><strong>Fabricante:</strong> <span id="out-mfg">Nordic Home GmbH · Industriestr. 14, Berlín</span></div>
+              <div><strong>Persona Responsable UE:</strong> <span id="out-eu">EU Compliance Rep S.L. · C/ Alcalá 120, Madrid</span></div>
+              <div><strong>Contacto electrónico:</strong> <a id="out-email" href="mailto:compliance@tienda.eu" style="color:#059669;text-decoration:underline;">compliance@tienda.eu</a></div>
+              <div><strong>Identificación modelo / lote:</strong> <span id="out-batch">MOD-2026-EU / Lote A4</span></div>
+              <div><strong>Advertencias de seguridad:</strong> <span id="out-warn">No apto para menores de 3 años. Usar bajo supervisión.</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. Qué ocurre exactamente después de pagar -->
+    <section class="card" style="margin-bottom:28px;" aria-label="Qué ocurre después de pagar">
+      <h2 style="margin-top:0;">Qué ocurre exactamente después de pagar (39 €/año)</h2>
+      <div style="display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));margin-top:14px;">
+        <div style="padding:14px;border:1px solid #e2e8f0;border-radius:10px;background:#f8fafc;">
+          <strong style="display:block;color:#059669;font-size:12.5px;margin-bottom:4px;">PASO 1 · EN SEGUNDOS</strong>
+          <strong style="display:block;color:#0f172a;font-size:14.5px;margin-bottom:6px;">Recibes tu clave Pro y factura</strong>
+          <p style="margin:0;font-size:13px;color:#475569;line-height:1.5;">
+            Al completar el pago en Stripe recibes tu factura europea al instante y tu clave de activación <code>SG-GPSR-PRO-XXXX-XXXX</code>.
+          </p>
+        </div>
+        <div style="padding:14px;border:1px solid #e2e8f0;border-radius:10px;background:#f8fafc;">
+          <strong style="display:block;color:#059669;font-size:12.5px;margin-bottom:4px;">PASO 2 · EN 2 MINUTOS</strong>
+          <strong style="display:block;color:#0f172a;font-size:14.5px;margin-bottom:6px;">Activas el plugin en WooCommerce</strong>
+          <p style="margin:0;font-size:13px;color:#475569;line-height:1.5;">
+            Sube el <code>.zip</code> gratuito en WordPress e introduce tu clave Pro para desbloquear productos y actualizaciones masivas ilimitadas (o instala en Shopify App Store).
+          </p>
+        </div>
+        <div style="padding:14px;border:1px solid #e2e8f0;border-radius:10px;background:#f8fafc;">
+          <strong style="display:block;color:#059669;font-size:12.5px;margin-bottom:4px;">PASO 3 · 1 CLIC</strong>
+          <strong style="display:block;color:#0f172a;font-size:14.5px;margin-bottom:6px;">Sincronizas todo tu catálogo</strong>
+          <p style="margin:0;font-size:13px;color:#475569;line-height:1.5;">
+            Crea un perfil por marca, proveedor o categoría y publica automáticamente el bloque GPSR en todas tus fichas de producto.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. Tabla comparativa + Qué incluye -->
+    <section class="seo-guide" style="margin-top:0;" aria-label="Comparativa e inclusión de licencia">
+      <h2>Gestión manual vs. SafeGuard GPSR EU Pro (39 €/año)</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Criterio</th>
+            <th>Edición manual ficha a ficha</th>
+            <th>SafeGuard GPSR EU Pro (39 €/año)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Tiempo para 500 productos</strong></td>
+            <td>15–25 horas editando descripciones HTML</td>
+            <td>Menos de 5 minutos por perfil de marca/proveedor</td>
+          </tr>
+          <tr>
+            <td><strong>Riesgo de bloqueo en UE / Marketplaces</strong></td>
+            <td>Alto por olvidos, fichas incompletas o cambios de proveedor</td>
+            <td>Auditoría automática de productos sin datos GPSR</td>
+          </tr>
+          <tr>
+            <td><strong>Idiomas en tienda</strong></td>
+            <td>Traducción manual en cada ficha</td>
+            <td>Bloque multiidioma automático (ES, EN, DE, FR)</td>
+          </tr>
+          <tr>
+            <td><strong>Actualizaciones masivas</strong></td>
+            <td>Si cambia la Persona Responsable, toca re-editar todo</td>
+            <td>Editas el perfil una vez y resincronizas en bloque</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2>Qué incluye tu licencia anual (39 €/año)</h2>
       <ul>
-        <li><strong>Auditoría instantánea del catálogo:</strong> detecta al momento qué productos o marcas (vendors) carecen de datos GPSR exigidos por el Art. 19 del Reglamento (UE) 2023/988.</li>
-        <li><strong>Perfiles por fabricante / proveedor:</strong> guarda una sola vez los datos de fabricante y Persona Responsable en la UE y aplícalos en bloque a todos los productos de esa marca.</li>
-        <li><strong>Theme App Block multiidioma (ES/EN/DE/FR):</strong> muestra un acordeón limpio en tu tema Shopify o ficha WooCommerce sin ralentizar el LCP ni tocar código Liquid.</li>
-        <li><strong>Licencia WooCommerce Pro (39 €/año) o Shopify App:</strong> ideal para tiendas europeas con decenas o miles de referencias.</li>
+        <li><strong>Productos y actualizaciones masivas ilimitadas</strong> en WooCommerce mediante tu clave <code>SG-GPSR-PRO-XXXX-XXXX</code> (la edición gratuita cubre hasta 25 productos por lote).</li>
+        <li><strong>Auditoría instantánea del catálogo:</strong> localiza qué referencias o proveedores incumplen el Art. 19 del Reglamento (UE) 2023/988.</li>
+        <li><strong>Perfiles reutilizables por fabricante / proveedor:</strong> fabricante, Persona Responsable en la UE, contacto electrónico, marcado CE y advertencias.</li>
+        <li><strong>Bloque legal limpio en producto (ES/EN/DE/FR):</strong> sin ralentizar tu tienda ni tocar código de plantilla.</li>
       </ul>
+
+      <div style="margin:24px 0;padding:20px;border-radius:12px;background:#0b1f3a;color:#ffffff;">
+        <h2 style="margin:0 0 8px;color:#ffffff;font-size:19px;">Protege tu catálogo frente a retiradas por GPSR hoy mismo</h2>
+        <p style="margin:0 0 14px;color:#cbd5e1;font-size:14px;">
+          Empieza gratis hasta 25 productos o desbloquea actualizaciones ilimitadas todo el año por <strong>39 €/año</strong>.
+        </p>
+        <div class="btn-row" style="align-items:center;">
+          <a href="https://buy.stripe.com/aFaaEY4pM51J1K8gnS57W00" target="_blank" rel="noopener noreferrer" class="btn btn-emerald">Adquirir Licencia Pro WooCommerce (39 €/año)</a>
+          <a href="/gpsr/" class="btn btn-outline" style="background:rgba(255,255,255,0.08);color:#ffffff;border-color:rgba(255,255,255,0.28);">Probar Generador HTML Gratis</a>
+        </div>
+        <p style="margin:10px 0 0;font-size:12.5px;color:#cbd5e1;">
+          Pago seguro con Stripe · Factura oficial europea al instante (válida para contabilidad) · Renovación anual cancelable en 1 clic
+        </p>
+      </div>
 
       <h2>Preguntas frecuentes</h2>
       <p><strong>¿Es obligatorio el GPSR para tiendas online que venden en la UE?</strong> Sí, desde el 13 de diciembre de 2024 cualquier comercio electrónico que venda productos de consumo no alimentarios en la UE debe mostrar en la ficha de producto los datos del fabricante, la Persona Responsable en la UE (si el fabricante está fuera de la UE) y las advertencias de seguridad.</p>
@@ -92,5 +232,6 @@
       </div>
     </div>
   </footer>
+  <script src="/assets/js/safeguard-preview.js"></script>
 </body>
 </html>
