@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cumplimiento GPSR en WooCommerce: Guía 2026 | JFD Agency</title>
+    <meta name="description" content="Cómo cumplir el Reglamento GPSR (UE) 2023/988 en WooCommerce sin editar cientos de fichas HTML a mano. Perfiles por marca, campos Art. 19 y sincronización masiva." />
+    <link rel="canonical" href="https://jfdagency.com/safeguard-gpsr/woocommerce/" />
+    <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
+    <meta property="og:title" content="Cumplimiento GPSR en WooCommerce: Guía 2026 | JFD Agency" />
+    <meta property="og:description" content="Cómo cumplir el Reglamento GPSR (UE) 2023/988 en WooCommerce sin editar cientos de fichas HTML a mano. Perfiles por marca, campos Art. 19 y sincronización masiva." />
+    <meta property="og:url" content="https://jfdagency.com/safeguard-gpsr/woocommerce/" />
+    <meta property="og:type" content="article" />
+    <meta name="twitter:card" content="summary" />
+    <link rel="stylesheet" href="/assets/css/styles.css" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://jfdagency.com/"},{"@type":"ListItem","position":2,"name":"SafeGuard GPSR EU","item":"https://jfdagency.com/safeguard-gpsr/"},{"@type":"ListItem","position":3,"name":"GPSR en WooCommerce","item":"https://jfdagency.com/safeguard-gpsr/woocommerce/"}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"¿Necesito modificar los archivos PHP de mi tema de WooCommerce para cumplir el GPSR?","acceptedAnswer":{"@type":"Answer","text":"No. Con un plugin dedicado puedes inyectar automáticamente el bloque legal en la pestaña o zona de detalles del producto sin editar single-product.php ni crear shortcodes manuales."}},{"@type":"Question","name":"¿Sirve el mismo bloque para tiendas WooCommerce en varios idiomas (WPML o Polylang)?","acceptedAnswer":{"@type":"Answer","text":"Sí, el bloque de seguridad debe mostrarse en el idioma del Estado miembro donde vendes. SafeGuard GPSR EU incluye etiquetas traducidas automáticamente en español, inglés, alemán y francés."}},{"@type":"Question","name":"¿Qué diferencia hay entre la versión gratuita y SafeGuard GPSR EU Pro (39 €/año)?","acceptedAnswer":{"@type":"Answer","text":"La edición gratuita permite probar y sincronizar hasta 25 productos por lote. La licencia Pro (39 €/año) desbloquea auditoría y sincronización masiva ilimitada para todo tu catálogo WooCommerce."}}]}]}</script>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container nav-inner">
+        <a href="/" class="brand-link">
+          <span class="brand-mark">JFD</span>
+          <span>JFD Agency</span>
+        </a>
+        <nav class="nav-links">
+          <a href="/safeguard-gpsr/">SafeGuard GPSR EU</a>
+          <a href="/gpsr/">Generador GPSR Gratis</a>
+          <a href="/nis2/">NIS2 Vendor Pass</a>
+          <button type="button" class="btn btn-contact" data-open-contact="Proyecto a medida">Contactar</button>
+        </nav>
+      </div>
+    </header>
+
+    <section class="hero" style="padding: 44px 0 36px;">
+      <div class="container">
+        <nav aria-label="Breadcrumb" style="font-size:12.5px;color:#cbd5e1;margin-bottom:10px;">
+          <a href="/" style="color:#cbd5e1;text-decoration:none;">Inicio</a> &rsaquo;
+          <a href="/safeguard-gpsr/" style="color:#cbd5e1;text-decoration:none;">SafeGuard GPSR EU</a> &rsaquo;
+          <span>GPSR en WooCommerce</span>
+        </nav>
+        <span class="hero-badge">WooCommerce · Reglamento (UE) 2023/988</span>
+        <h1>Cumplimiento GPSR en WooCommerce: cómo publicar fabricante y responsable UE en todo tu catálogo</h1>
+        <p>Evita bloqueos en tus campañas de Google Shopping y cumple el Art. 19 del Reglamento (UE) 2023/988 en WooCommerce sin modificar las plantillas de tu tema.</p>
+      </div>
+    </section>
+
+    <main class="section">
+      <div class="container">
+        <article class="seo-guide" style="margin-top:0;">
+          <h2>Por qué editar descripciones de WooCommerce a mano no escala bajo el GPSR</h2>
+          <p>Desde la plena aplicación del Reglamento (UE) 2023/988 (General Product Safety Regulation), cualquier tienda WooCommerce que venda productos de consumo no alimentarios a clientes en la Unión Europea debe mostrar en cada ficha de producto la identidad del fabricante, la Persona Responsable en la UE (cuando el fabricante esté fuera de la Unión), un correo electrónico de contacto, la identificación de modelo/lote y las advertencias de seguridad aplicables.</p>
+          <p>El problema técnico para la mayoría de tiendas WordPress/WooCommerce es operativo: si gestionas entre 150 y 5.000 referencias, copiar y pegar bloques HTML dentro del editor clásico o Gutenberg en cada producto consume decenas de horas. Peor aún, si un proveedor cambia de razón social o sustituyes a tu Persona Responsable en la UE, te ves obligado a localizar y re-editar cientos de fichas una por una, con el riesgo constante de dejar referencias desactualizadas.</p>
+
+          <h2>Qué debe mostrar tu ficha de WooCommerce según el Art. 19 GPSR</h2>
+          <table>
+            <thead>
+              <tr>
+                <th>Campo obligatorio en ficha</th>
+                <th>Qué exige la normativa (UE 2023/988)</th>
+                <th>Cómo automatizarlo en WooCommerce</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td><strong>Fabricante</strong></td><td>Nombre, nombre comercial o marca registrada y dirección postal completa.</td><td>Perfil reutilizable por marca o taxonomía de proveedor.</td></tr>
+              <tr><td><strong>Persona Responsable UE</strong></td><td>Operador económico en la UE (si el fabricante está fuera de la Unión).</td><td>Asignación en bloque a todos los SKU importados de ese proveedor.</td></tr>
+              <tr><td><strong>Contacto electrónico</strong></td><td>Dirección de correo electrónico o URL de contacto directo para alertas.</td><td>Campo validado con enlace mailto limpio en el bloque legal.</td></tr>
+              <tr><td><strong>Identificación del producto</strong></td><td>Tipo, número de lote, serie o modelo visible para trazabilidad.</td><td>Mapeo directo a SKU o atributo de lote en WooCommerce.</td></tr>
+              <tr><td><strong>Advertencias e idioma</strong></td><td>Instrucciones y advertencias de seguridad en el idioma del comprador.</td><td>Renderizado automático multiidioma (ES, EN, DE, FR) sin tocar PHP.</td></tr>
+            </tbody>
+          </table>
+
+          <h2>Cómo estructurar perfiles por fabricante y auditar productos incompletos</h2>
+          <p>La arquitectura más limpia en WordPress consiste en separar los datos legales del contenido comercial de la descripción. Al centralizar cada fabricante o importador en un perfil único y vincularlo a sus productos o categorías, cualquier actualización futura se propaga automáticamente a todo el catálogo en segundos.</p>
+          <p>Además, antes de lanzar campañas en Google Merchant Center o marketplaces conectados por feed, conviene ejecutar una auditoría rápida de catálogo que detecte qué productos publicados siguen sin Persona Responsable o sin advertencias de seguridad. De este modo corriges las carencias antes de recibir una suspensión de cuenta o una inspección de consumo.</p>
+
+          <div style="margin:28px 0;padding:22px;border-radius:14px;background:#0b1f3a;color:#ffffff;">
+            <span style="display:inline-block;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.04em;color:#34d399;margin-bottom:6px;">
+              SafeGuard GPSR EU Pro · 39 €/año
+            </span>
+            <h2 style="margin:0 0 8px;color:#ffffff;font-size:20px;">Automatiza el bloque GPSR en todo tu catálogo en minutos</h2>
+            <p style="margin:0 0 16px;color:#cbd5e1;font-size:14px;line-height:1.55;">
+              Crea perfiles reutilizables por fabricante o proveedor y publica automáticamente los datos del Art. 19 (fabricante, Persona Responsable UE, contacto, modelo/lote y advertencias) en WooCommerce o Shopify por <strong>39 €/año</strong>.
+            </p>
+            <div class="btn-row" style="align-items:center;">
+              <a href="https://buy.stripe.com/aFaaEY4pM51J1K8gnS57W00" target="_blank" rel="noopener noreferrer" class="btn btn-emerald-solid">Adquirir Licencia Pro · 39 €/año</a>
+              <a href="/safeguard-gpsr/#previsualizador" class="btn btn-outline" style="background:rgba(255,255,255,0.08);color:#ffffff;border-color:rgba(255,255,255,0.28);">Probar previsualizador en vivo →</a>
+            </div>
+            <p style="margin:10px 0 0;font-size:12.5px;color:#cbd5e1;">
+              Pago seguro Stripe · Factura europea al instante · Cancela en 1 clic
+            </p>
+          </div>
+
+          <h2>Preguntas frecuentes</h2>
+          <div style="margin-top:14px;padding:14px 16px;border:1px solid var(--border);border-radius:10px;background:#f8fafc;">
+            <h3 style="margin:0 0 6px;font-size:15px;color:var(--navy);">¿Necesito modificar los archivos PHP de mi tema de WooCommerce para cumplir el GPSR?</h3>
+            <p style="margin:0;font-size:14px;color:var(--muted);line-height:1.55;">No. Con un plugin dedicado puedes inyectar automáticamente el bloque legal en la pestaña o zona de detalles del producto sin editar single-product.php ni crear shortcodes manuales.</p>
+          </div>
+          <div style="margin-top:14px;padding:14px 16px;border:1px solid var(--border);border-radius:10px;background:#f8fafc;">
+            <h3 style="margin:0 0 6px;font-size:15px;color:var(--navy);">¿Sirve el mismo bloque para tiendas WooCommerce en varios idiomas (WPML o Polylang)?</h3>
+            <p style="margin:0;font-size:14px;color:var(--muted);line-height:1.55;">Sí, el bloque de seguridad debe mostrarse en el idioma del Estado miembro donde vendes. SafeGuard GPSR EU incluye etiquetas traducidas automáticamente en español, inglés, alemán y francés.</p>
+          </div>
+          <div style="margin-top:14px;padding:14px 16px;border:1px solid var(--border);border-radius:10px;background:#f8fafc;">
+            <h3 style="margin:0 0 6px;font-size:15px;color:var(--navy);">¿Qué diferencia hay entre la versión gratuita y SafeGuard GPSR EU Pro (39 €/año)?</h3>
+            <p style="margin:0;font-size:14px;color:var(--muted);line-height:1.55;">La edición gratuita permite probar y sincronizar hasta 25 productos por lote. La licencia Pro (39 €/año) desbloquea auditoría y sincronización masiva ilimitada para todo tu catálogo WooCommerce.</p>
+          </div>
+
+          <div style="margin-top:32px;padding-top:20px;border-top:1px solid var(--border);">
+            <h2 style="font-size:17px;margin-bottom:12px;">Otras guías GPSR relacionadas</h2>
+            <div style="display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));">
+              <a href="/safeguard-gpsr/shopify/" style="display:block;padding:12px 14px;border:1px solid var(--border);border-radius:10px;background:#ffffff;text-decoration:none;color:var(--navy);font-weight:600;font-size:13.5px;">GPSR en Shopify →</a>
+              <a href="/safeguard-gpsr/persona-responsable-ue/" style="display:block;padding:12px 14px;border:1px solid var(--border);border-radius:10px;background:#ffffff;text-decoration:none;color:var(--navy);font-weight:600;font-size:13.5px;">Persona Responsable UE →</a>
+              <a href="/safeguard-gpsr/sanciones-retiradas-ue/" style="display:block;padding:12px 14px;border:1px solid var(--border);border-radius:10px;background:#ffffff;text-decoration:none;color:var(--navy);font-weight:600;font-size:13.5px;">Sanciones y Retiradas GPSR →</a>
+              <a href="/safeguard-gpsr/" style="display:block;padding:12px 14px;border:1px solid #10b981;border-radius:10px;background:#ecfdf5;text-decoration:none;color:#065f46;font-weight:700;font-size:13.5px;">SafeGuard GPSR EU Pro (39 €/año) →</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <span>&copy; 2026 JFD Agency</span>
+        <div class="footer-links">
+          <a href="/">Inicio</a>
+          <a href="/safeguard-gpsr/">SafeGuard GPSR EU</a>
+          <a href="/gpsr/">Generador GPSR</a>
+          <a href="/nis2/">NIS2 Vendor Pass</a>
+          <a href="/privacy/">Política de Privacidad</a>
+          <a href="/terms/">Términos de Uso</a>
+          <a href="#" data-open-contact="Proyecto a medida">soporte@tryjfdagency.com</a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="/assets/js/contact-modal.js"></script>
+  </body>
+</html>
