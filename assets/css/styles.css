@@ -608,3 +608,45 @@ a {
   background: #f1f5f9;
   color: var(--navy);
 }
+
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--border);
+}
+
+.logo {
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 19px;
+  color: var(--navy);
+  letter-spacing: -0.02em;
+}
+
+.logo span {
+  color: var(--emerald-dark);
+}
+
+.btn-emerald-solid {
+  background: #059669;
+  color: #ffffff;
+  font-weight: 700;
+}
+
+.gpsr-hero-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 32px;
+  align-items: center;
+  margin-bottom: 36px;
+}
+
+@media (max-width: 860px) {
+  .gpsr-hero-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+}

@@ -43,7 +43,7 @@
 <body>
   <nav class="navbar">
     <div class="container nav-inner">
-      <a href="/en/" class="logo">JFD<span>Agency</span></a>
+      <a href="/en/" class="logo" style="text-decoration:none;font-weight:700;">JFD<span>Agency</span></a>
       <div class="nav-links">
         <a href="/en/nis2/">NIS2 Scanner</a>
         <a href="/en/gpsr/">Free GPSR Generator</a>
@@ -53,24 +53,50 @@
     </div>
   </nav>
 
-  <main class="container" style="padding-top:48px;padding-bottom:64px;">
-    <span class="badge badge-green">Regulation (EU) 2023/988 · Shopify &amp; WooCommerce</span>
-    <h1 style="margin-top:12px;">SafeGuard GPSR EU: Automated Catalog Compliance</h1>
-    <p class="lead" style="max-width:760px;">
-      Publish mandatory manufacturer details, EU Responsible Person, batch/model identification, and safety warnings across your Shopify or WooCommerce product pages without manual HTML edits.
-    </p>
+  <main class="container" style="padding-top:24px;padding-bottom:64px;">
+    <section class="gpsr-hero-grid" aria-label="SafeGuard GPSR EU Overview">
+      <div>
+        <span class="badge badge-green" style="font-size:12px;">Regulation (EU) 2023/988 · WooCommerce &amp; Shopify</span>
+        <h1 style="margin:12px 0 12px;font-size:clamp(26px,3.2vw,38px);line-height:1.15;">SafeGuard GPSR EU: Automated Catalog Compliance</h1>
+        <p class="lead" style="margin:0 0 22px;font-size:16px;color:#334155;">
+          Publish manufacturer details, EU Responsible Person, batch/model IDs, and safety warnings across hundreds of product pages in 1 click, with zero manual HTML edits.
+        </p>
 
-    <div style="display:flex;gap:12px;flex-wrap:wrap;margin:24px 0 8px;">
-      <a href="https://buy.stripe.com/aFaaEY4pM51J1K8gnS57W00" target="_blank" rel="noopener noreferrer" class="btn btn-emerald">Buy WooCommerce Pro License (€39/yr)</a>
-      <a href="/downloads/safeguard-gpsr-eu.zip" download class="btn btn-primary">Download Free Plugin (.zip)</a>
-      <a href="https://apps.shopify.com/safeguard-gpsr-eu" target="_blank" rel="noopener noreferrer" class="btn btn-outline">Install on Shopify</a>
-    </div>
-    <p style="margin:0 0 36px;font-size:12.5px;color:#475569;">
-      Secure Stripe checkout · Instant official EU invoice (accounting-ready) · 1-click annual renewal cancellation
-    </p>
+        <div style="display:flex;gap:12px;flex-wrap:wrap;margin-bottom:10px;">
+          <a href="https://buy.stripe.com/aFaaEY4pM51J1K8gnS57W00" target="_blank" rel="noopener noreferrer" class="btn btn-emerald-solid" style="padding:12px 20px;">Get Pro License · €39/yr</a>
+          <a href="#live-preview" class="btn btn-outline" style="padding:12px 18px;">Try live previewer ↓</a>
+        </div>
+        <p style="margin:0;font-size:12.5px;color:#475569;">
+          Secure Stripe checkout · Instant EU invoice · Cancel in 1 click
+        </p>
+      </div>
+
+      <div style="border:1px solid #cbd5e1;border-radius:14px;background:#ffffff;box-shadow:0 10px 28px rgba(15,23,42,0.08);padding:20px;">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;">
+          <span style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;color:#64748b;">Storefront Product Example</span>
+          <span style="font-size:11px;padding:2px 9px;border-radius:999px;background:#ecfdf5;color:#065f46;font-weight:700;">GPSR Verified</span>
+        </div>
+        <div style="font-weight:700;font-size:15.5px;color:#0f172a;">Studio Wireless Headphones</div>
+        <div style="font-size:13px;color:#059669;font-weight:700;margin:2px 0 12px;">€79.00 · EU 24h Shipping</div>
+
+        <div style="border:1px solid #cbd5e1;border-radius:10px;background:#f8fafc;padding:13px 14px;font-size:12.5px;line-height:1.5;color:#1e293b;">
+          <div style="font-weight:700;color:#0f172a;margin-bottom:8px;display:flex;justify-content:space-between;align-items:center;">
+            <span>Product Safety (EU 2023/988)</span>
+            <span style="font-size:11px;color:#64748b;font-weight:600;">Art. 19</span>
+          </div>
+          <div style="display:grid;gap:5px;border-top:1px solid #e2e8f0;padding-top:8px;">
+            <div><strong>Manufacturer:</strong> Nordic Sound GmbH · Berlin</div>
+            <div><strong>EU Responsible Person:</strong> EU Compliance Rep S.L. · Madrid</div>
+            <div><strong>Contact:</strong> <span style="color:#059669;">safety@nordicsound.eu</span></div>
+            <div><strong>Model / Batch:</strong> NS-400 · Batch 2026-04</div>
+            <div><strong>Warnings:</strong> CE marked. Keep away from extreme moisture.</div>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <!-- 1 & 2. Realistic visual preview + Live in-browser customizer -->
-    <section class="card" style="margin-bottom:28px;" aria-label="Live GPSR product page preview">
+    <section id="live-preview" class="card" style="margin-bottom:28px;" aria-label="Live GPSR product page preview">
       <h2 style="margin-top:0;">How it looks on your product page (Try it live)</h2>
       <p style="color:#475569;font-size:14px;margin-top:4px;">
         Edit these sample fields to preview in real time how the Regulation (EU) 2023/988 (GPSR) compliance block renders inside your WooCommerce or Shopify storefront.
@@ -207,8 +233,8 @@
           Start free for up to 25 products per batch or unlock unlimited bulk compliance for <strong>€39/year</strong>.
         </p>
         <div class="btn-row" style="align-items:center;">
-          <a href="https://buy.stripe.com/aFaaEY4pM51J1K8gnS57W00" target="_blank" rel="noopener noreferrer" class="btn btn-emerald">Buy WooCommerce Pro License (€39/yr)</a>
-          <a href="/en/gpsr/" class="btn btn-outline" style="background:rgba(255,255,255,0.08);color:#ffffff;border-color:rgba(255,255,255,0.28);">Try Free HTML Generator</a>
+          <a href="https://buy.stripe.com/aFaaEY4pM51J1K8gnS57W00" target="_blank" rel="noopener noreferrer" class="btn btn-emerald-solid">Get Pro License · €39/yr</a>
+          <a href="/downloads/safeguard-gpsr-eu.zip" download class="btn btn-outline" style="background:rgba(255,255,255,0.08);color:#ffffff;border-color:rgba(255,255,255,0.28);">Download Free Plugin (.zip)</a>
         </div>
         <p style="margin:10px 0 0;font-size:12.5px;color:#cbd5e1;">
           Secure Stripe checkout · Instant official EU invoice (accounting-ready) · 1-click annual renewal cancellation
