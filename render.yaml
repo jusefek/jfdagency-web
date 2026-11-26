@@ -25,24 +25,18 @@ services:
       - type: redirect
         source: /index.html
         destination: /
-        status: 301
       - type: redirect
         source: /nis2/index.html
         destination: /nis2/
-        status: 301
       - type: redirect
         source: /gpsr/index.html
         destination: /gpsr/
-        status: 301
       - type: redirect
         source: /en/index.html
         destination: /en/
-        status: 301
       - type: redirect
         source: /en/nis2/index.html
         destination: /en/nis2/
-        status: 301
       - type: redirect
         source: /en/gpsr/index.html
         destination: /en/gpsr/
-        status: 301
