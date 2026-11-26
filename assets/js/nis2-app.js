@@ -149,6 +149,33 @@
         p.textContent = `${q[c.key] ? "✓" : "○"} ${c[currentLang]}`;
         ctrlDiv.appendChild(p);
       }
+
+      if (vendor.status === "verified" && !document.getElementById("verify-badge-snippet-box")) {
+        const box = document.createElement("div");
+        box.id = "verify-badge-snippet-box";
+        box.style.marginTop = "18px";
+        box.style.padding = "12px";
+        box.style.background = "#f8fafc";
+        box.style.border = "1px solid #cbd5e1";
+        box.style.borderRadius = "8px";
+        const label = document.createElement("div");
+        label.style.fontSize = "12px";
+        label.style.fontWeight = "600";
+        label.style.marginBottom = "6px";
+        label.textContent = currentLang === "en"
+          ? "Embed your verified NIS2 Vendor Pass trust badge:"
+          : "Inserta el sello verificado NIS2 Vendor Pass en tu web:";
+        const pre = document.createElement("code");
+        pre.style.display = "block";
+        pre.style.fontSize = "11px";
+        pre.style.wordBreak = "break-all";
+        pre.style.color = "#0f172a";
+        const safeUrl = `https://jfdagency.com/nis2/?verify=${encodeURIComponent(vendor.slug)}`;
+        pre.textContent = `<a href="${safeUrl}" target="_blank" rel="noopener">NIS2 Vendor Pass Verified by JFD Agency</a>`;
+        box.appendChild(label);
+        box.appendChild(pre);
+        ctrlDiv.appendChild(box);
+      }
     } catch (err) {
       if (errBox) {
         errBox.textContent = err.message || t.verifyFailed;
