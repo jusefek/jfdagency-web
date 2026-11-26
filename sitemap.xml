@@ -25,6 +25,66 @@
     <priority>0.95</priority>
   </url>
   <url>
+    <loc>https://jfdagency.com/nis2/cuestionario-proveedores/</loc>
+    <lastmod>2026-11-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://jfdagency.com/nis2/pymes-espana/</loc>
+    <lastmod>2026-11-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://jfdagency.com/nis2/transporte-logistica/</loc>
+    <lastmod>2026-11-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://jfdagency.com/nis2/industria-fabricacion/</loc>
+    <lastmod>2026-11-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://jfdagency.com/nis2/proveedores-ti-msp-saas/</loc>
+    <lastmod>2026-11-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://jfdagency.com/nis2/salud-clinicas-farma/</loc>
+    <lastmod>2026-11-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://jfdagency.com/nis2/energia-renovables/</loc>
+    <lastmod>2026-11-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://jfdagency.com/nis2/alimentacion-distribucion/</loc>
+    <lastmod>2026-11-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://jfdagency.com/nis2/articulo-21-checklist/</loc>
+    <lastmod>2026-11-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://jfdagency.com/nis2/notificacion-incidentes-24h-72h/</loc>
+    <lastmod>2026-11-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
     <loc>https://jfdagency.com/gpsr/</loc>
     <lastmod>2026-11-26</lastmod>
     <changefreq>weekly</changefreq>
