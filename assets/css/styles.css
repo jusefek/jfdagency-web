@@ -680,3 +680,9 @@ a.btn.btn-emerald-solid:hover,
     gap: 32px;
   }
 }
+
+@media print {
+  .ai-locked-preview {
+    display: none !important;
+  }
+}
