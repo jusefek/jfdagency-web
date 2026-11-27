@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DMARC, SPF & DKIM for NIS2 Compliance | JFD Agency</title>
+    <meta name="description" content="Why missing SPF, DKIM, or DMARC records block B2B vendor onboarding under NIS2 Article 21(2) and how to fix your domain DNS posture." />
+    <link rel="canonical" href="https://jfdagency.com/en/nis2/dmarc-spf-dkim-compliance/" />
+    <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
+    <meta property="og:title" content="DMARC, SPF & DKIM for NIS2 Compliance | JFD Agency" />
+    <meta property="og:description" content="Why missing SPF, DKIM, or DMARC records block B2B vendor onboarding under NIS2 Article 21(2) and how to fix your domain DNS posture." />
+    <meta property="og:url" content="https://jfdagency.com/en/nis2/dmarc-spf-dkim-compliance/" />
+    <meta property="og:type" content="article" />
+    <meta name="twitter:card" content="summary" />
+    <link rel="stylesheet" href="/assets/css/styles.css?v=20261127" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://jfdagency.com/en/"},{"@type":"ListItem","position":2,"name":"NIS2 Vendor Pass","item":"https://jfdagency.com/en/nis2/"},{"@type":"ListItem","position":3,"name":"DMARC, SPF & DKIM Compliance","item":"https://jfdagency.com/en/nis2/dmarc-spf-dkim-compliance/"}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Can a domain have two separate SPF TXT records?","acceptedAnswer":{"@type":"Answer","text":"No. RFC 7208 specifies that multiple v=spf1 TXT records invalidate SPF evaluation with a PermError. Always merge all authorized senders into one record."}},{"@type":"Question","name":"What if we use a CRM or ticketing tool to send emails?","acceptedAnswer":{"@type":"Answer","text":"Every third-party sender using your domain must be included in your SPF record and configured with its own DKIM selector so DMARC alignment passes."}},{"@type":"Question","name":"How can I check if my DKIM and DMARC records are externally visible?","acceptedAnswer":{"@type":"Answer","text":"Use our free live domain scanner at /en/nis2/ to test SPF, common DKIM selectors, and DMARC enforcement in seconds."}}]}]}</script>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container nav-inner">
+        <a href="/en/" class="brand-link">
+          <span class="brand-mark">JFD</span>
+          <span>JFD Agency</span>
+        </a>
+        <nav class="nav-links">
+          <a href="/en/nis2/">NIS2 Vendor Pass</a>
+          <a href="/en/safeguard-gpsr/">SafeGuard GPSR</a>
+          <a href="/en/gpsr/">Free GPSR Generator</a>
+          <button type="button" class="btn btn-contact" data-open-contact="Custom Project">Contact</button>
+        </nav>
+      </div>
+    </header>
+
+    <section class="hero" style="padding: 44px 0 36px;">
+      <div class="container">
+        <nav aria-label="Breadcrumb" style="font-size:12.5px;color:#cbd5e1;margin-bottom:10px;">
+          <a href="/en/" style="color:#cbd5e1;text-decoration:none;">Home</a> &rsaquo;
+          <a href="/en/nis2/" style="color:#cbd5e1;text-decoration:none;">NIS2 Vendor Pass</a> &rsaquo;
+          <span>DMARC, SPF & DKIM Compliance</span>
+        </nav>
+        <span class="hero-badge">Email Security · Art. 21(2)(g) & (j) NIS2</span>
+        <h1>DMARC, SPF & DKIM Compliance Under NIS2: Stop Failing Vendor Security Checks</h1>
+        <p>Business Email Compromise (BEC) is the #1 supply-chain attack vector. Enterprise buyers reject vendors whose domains lack enforced DMARC, SPF, and DKIM.</p>
+      </div>
+    </section>
+
+    <main class="section">
+      <div class="container">
+        <article class="seo-guide" style="margin-top:0;">
+          <h2>Why Email Authentication Is a Mandatory Supply-Chain Gate</h2>
+          <p>When an attacker spoofs a supplier domain to send fraudulent bank-detail updates to an enterprise accounts-payable team, the resulting incident triggers NIS2 supply-chain scrutiny. Under Article 21(2)(g) (basic cyber hygiene) and (j) (secured communications), regulated EU buyers expect their vendors to enforce cryptographic email authentication.</p>
+          <p>During vendor onboarding, automated security scanners query your DNS TXT records for SPF, DKIM, and DMARC. A missing DMARC record or a misconfigured SPF record exceeding the 10-DNS-lookup limit immediately lowers your vendor trust score.</p>
+
+          <h2>DNS Email Authentication Checklist for B2B Suppliers</h2>
+          <table>
+            <thead>
+              <tr>
+                <th>DNS Record</th>
+                <th>Security Purpose</th>
+                <th>Recommended B2B Configuration</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td><strong>SPF (TXT @)</strong></td><td>Lists authorized mail servers allowed to send on your domain.</td><td>Single v=spf1 record, under 10 DNS lookups, ending in ~all or -all.</td></tr>
+              <tr><td><strong>DKIM (TXT selector._domainkey)</strong></td><td>Cryptographically signs outgoing emails against tampering.</td><td>2048-bit RSA key enabled on Google Workspace, M365, and transactional relays.</td></tr>
+              <tr><td><strong>DMARC (TXT _dmarc)</strong></td><td>Instructs receivers how to handle unauthenticated mail.</td><td>v=DMARC1; p=quarantine (or p=reject) with rua= reporting address.</td></tr>
+            </tbody>
+          </table>
+
+          <h2>Verify Your DNS Changes Live Before Submitting Your Dossier</h2>
+          <p>After updating your DNS zone in Cloudflare, Route 53, or your registrar, verify that propagation is complete and that no duplicate SPF records exist. Running a live perimeter scan confirms that external auditors see the exact same clean configuration.</p>
+          <p>Pairing a passing SPF/DKIM/DMARC check with a verifiable NIS2 Technical Dossier turns a common onboarding blocker into a competitive advantage.</p>
+
+          <div style="margin:28px 0;padding:22px;border-radius:14px;background:#0b1f3a;color:#ffffff;">
+            <span style="display:inline-block;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.04em;color:#34d399;margin-bottom:6px;">
+              NIS2 Vendor Pass · €129/year
+            </span>
+            <h2 style="margin:0 0 8px;color:#ffffff;font-size:20px;">Scan Your Domain Free &amp; Issue Your Art. 21 NIS2 Dossier</h2>
+            <p style="margin:0 0 16px;color:#cbd5e1;font-size:14px;line-height:1.55;">
+              Test SPF, DKIM, DMARC, SSL/TLS, and HTTP security headers live. Unlock via Stripe for <strong>€129/year</strong> your 3-page executive PDF dossier mapped to Art. 21(2), 12-month QR verification seal, copy-paste B2B questionnaire answers, and 3 editable governance templates.
+            </p>
+            <div class="btn-row" style="align-items:center;">
+              <a href="https://jfdagency.com/en/nis2/" class="btn btn-emerald-solid">Scan Your Domain Free →</a>
+              <a href="https://jfdagency.com/en/nis2/#step2-card" class="btn btn-outline" style="background:rgba(255,255,255,0.08);color:#ffffff;border-color:rgba(255,255,255,0.28);">Unlock Dossier (€129/yr Stripe)</a>
+            </div>
+          </div>
+
+          <h2>Frequently Asked Questions</h2>
+          <div style="margin-top:14px;padding:14px 16px;border:1px solid var(--border);border-radius:10px;background:#f8fafc;">
+            <h3 style="margin:0 0 6px;font-size:15px;color:var(--navy);">Can a domain have two separate SPF TXT records?</h3>
+            <p style="margin:0;font-size:14px;color:var(--muted);line-height:1.55;">No. RFC 7208 specifies that multiple v=spf1 TXT records invalidate SPF evaluation with a PermError. Always merge all authorized senders into one record.</p>
+          </div>
+          <div style="margin-top:14px;padding:14px 16px;border:1px solid var(--border);border-radius:10px;background:#f8fafc;">
+            <h3 style="margin:0 0 6px;font-size:15px;color:var(--navy);">What if we use a CRM or ticketing tool to send emails?</h3>
+            <p style="margin:0;font-size:14px;color:var(--muted);line-height:1.55;">Every third-party sender using your domain must be included in your SPF record and configured with its own DKIM selector so DMARC alignment passes.</p>
+          </div>
+          <div style="margin-top:14px;padding:14px 16px;border:1px solid var(--border);border-radius:10px;background:#f8fafc;">
+            <h3 style="margin:0 0 6px;font-size:15px;color:var(--navy);">How can I check if my DKIM and DMARC records are externally visible?</h3>
+            <p style="margin:0;font-size:14px;color:var(--muted);line-height:1.55;">Use our free live domain scanner at /en/nis2/ to test SPF, common DKIM selectors, and DMARC enforcement in seconds.</p>
+          </div>
+
+          <div style="margin-top:32px;padding-top:20px;border-top:1px solid var(--border);">
+            <h2 style="font-size:17px;margin-bottom:12px;">Related NIS2 Guides</h2>
+            <div style="display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));">
+              <a href="/en/nis2/article-21-checklist/" style="display:block;padding:12px 14px;border:1px solid var(--border);border-radius:10px;background:#ffffff;text-decoration:none;color:var(--navy);font-weight:600;font-size:13.5px;">Article 21 Checklist →</a>
+              <a href="/en/nis2/supplier-questionnaire/" style="display:block;padding:12px 14px;border:1px solid var(--border);border-radius:10px;background:#ffffff;text-decoration:none;color:var(--navy);font-weight:600;font-size:13.5px;">NIS2 Supplier Questionnaire →</a>
+              <a href="/en/nis2/msp-it-providers/" style="display:block;padding:12px 14px;border:1px solid var(--border);border-radius:10px;background:#ffffff;text-decoration:none;color:var(--navy);font-weight:600;font-size:13.5px;">MSPs, IT & SaaS Providers →</a>
+              <a href="/en/nis2/" style="display:block;padding:12px 14px;border:1px solid #10b981;border-radius:10px;background:#ecfdf5;text-decoration:none;color:#065f46;font-weight:700;font-size:13.5px;">Free NIS2 Scanner &amp; Dossier →</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <span>&copy; 2026 JFD Agency</span>
+        <div class="footer-links">
+          <a href="/en/">Home</a>
+          <a href="/en/nis2/">NIS2 Vendor Pass</a>
+          <a href="/en/safeguard-gpsr/">SafeGuard GPSR</a>
+          <a href="/privacy/">Privacy Policy</a>
+          <a href="/terms/">Terms of Use</a>
+          <a href="#" data-open-contact="Custom Project">soporte@tryjfdagency.com</a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="/assets/js/contact-modal.js"></script>
+  </body>
+</html>
